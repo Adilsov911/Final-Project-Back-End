@@ -1,41 +1,41 @@
-﻿<section class="Slider">
-    <div class="slider-items ">
-        <img src="~/assest/img/slider/slide-image-2.jpg" alt="">
-        <div class="about">
-            <span>Live the moment</span>
-        </div>
-        <div class="img-slider">
-            <img src="~/assest/img/slider/inslideimg/slide-image-caption-1.jpg" alt="">
+﻿@model HomeVM
 
-        </div>
-        <div class="button">
-            <button type="button" class="btn btn-secondary">SEE COLLECTION</button>
-        </div>
+<section class="Slider">
 
-    </div>
-    <div class="slider-items">
-        <img src="~/assest/img/slider/slide-image-2.jpg" alt="">
-        <div class="img-slider-2">
-            <img src="~/assest/img/slider/inslideimg/slide-image-caption-2.jpg" alt="">
+    @foreach (var item in Model.Sliders)
+    {
+        if (item.Right==false)
+        {
 
-        </div>
-        <div class="about-2">
-            <span>Love's Embrance</span>
-        </div>
-        <div class="button-2">
-            <button type="button" class="btn btn-secondary">SEE COLLECTION</button>
-        </div>
-    </div>
-    <div class="slider-items">
-        <img src="~/assest/img/slider/slide-image-3.jpg" alt="">
-        <div class="img-slider-3">
-            <img src="~/assest/img/slider/inslideimg/slide-image-caption-3.jpg" alt="">
+            <div class="slider-items ">
+                <img src="~/assest/img/slider/@item.Image" alt="">
+             
+                <div class="img-slider">
+                    <img src="~/assest/img/slider/inslideimg/@item.TitleImg" alt="">
 
-        </div>
-        <div class="button-3">
-            <button type="button" class="btn btn-secondary">SEE COLLECTION</button>
-        </div>
-    </div>
+                </div>
+                <div class="button">
+                    <button type="button" class="btn btn-secondary">SEE COLLECTION</button>
+                </div>
+
+            </div>
+        }
+        else
+        {
+            <div class="slider-items">
+                <img src="~/assest/img/slider/@item.Image" alt="">
+                <div class="img-slider-3">
+                    <img src="~/assest/img/slider/inslideimg/@item.TitleImg" alt="">
+
+                </div>
+                <div class="button-3">
+                    <button type="button" class="btn btn-secondary">SEE COLLECTION</button>
+                </div>
+            </div>
+        }
+    }
+
+
 </section>
 
 <section id="Collections">
@@ -45,30 +45,16 @@
             <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/4/assets/home_line.png?v=178078056696408182271627441368" alt="">
         </div>
         <div class="Categoty d-flex justify-content-between row">
-            <div class="product col-lg-3 ">
-                <a href=""><img src="~/assest/img/category/3_large.png" alt=""></a>
-                <h5>BRACELETS</h5>
-                <hr>
-                <h6> <a href="">See The Collections</a> </h6>
-            </div>
-            <div class="product col-lg-3 col-6">
-                <a href=""><img src="~/assest/img/category/2_large.png" alt=""></a>
-                <h5>ERRINGS</h5>
-                <hr>
-                <h6> <a href="">See The Collections</a> </h6>
-            </div>
-            <div class="product col-lg-3 col-6">
-                <a href=""><img src="~/assest/img/category/1_79ec3305-7c83-4daa-804c-fac19b2d1b7b_large.png" alt=""></a>
-                <h5>NECKLACES</h5>
-                <hr>
-                <h6> <a href="">See The Collections</a> </h6>
-            </div>
-            <div class="product col-lg-3 col-6">
-                <a href=""> <img src="~/assest/img/category/4_large.png" alt=""></a>
-                <h5>RINGS</h5>
-                <hr>
-                <h6> <a href="">See The Collections</a> </h6>
-            </div>
+            @foreach (var item in Model.Categories)
+            {
+                <div class="product col-lg-3 col-6">
+                    <a asp-controller="shop" asp-action="index"><img src="~/assest/img/category/@item.Image" alt=""></a>
+                    <h5>@item.Name</h5>
+                    <hr>
+                    <h6> <a asp-controller="shop" asp-action="index">See The Collections</a> </h6>
+                </div>
+            }
+           
 
         </div>
     </div>
@@ -81,174 +67,55 @@
             <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/4/assets/home_line.png?v=178078056696408182271627441368" alt="">
         </div>
         <div class="Categoty d-flex justify-content-between row">
+            @foreach (var item in Model.Products.Take(6))
+            {
+                
+                    <div class="product col-lg-4 col-6">
+                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"><img src="~/assest/img/Product/@item.MainImage" alt=""></a>
+                        <div class="icons text-center">
+                            <hr>
+                            <div class="content">
+                                <i class="fa-solid fa-bars"></i>
+                                <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
+                                <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
 
-            <div class="product col-lg-4 col-6">
-                <a href="product-detail.html"><img src="~/assest/img/Product/10_16854be2-a731-4970-984e-7f6e483d2405_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <i class="fa-solid fa-bars"></i>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
+                            </div>
+                        </div>
+                        <hr>
+                        @if (item.IsBestSeller==true)
+                        {
 
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
+                            <div class="sale">
+                                <h3>Sale</h3>
+                            </div>
+                        }
+                        <div class="bottom d-flex justify-content-between">
 
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
+                            <div class="title">
+                                <h5>@item.Title</h5>
+                                <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
+                            </div>
+                            <div class="price text-end">
+                                @if (0 < item.DiscountedPrice)
+                                {
 
-            <div class="product col-lg-4 col-6">
-                <a href="product-detail.html"><img src="~/assest/img/Product/11_68ab6d0f-109c-429b-a903-4cbf60257806_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <i class="fa-solid fa-bars"></i>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
+                                    <h4>@item.Price$</h4>
+                                    <h6>@item.DiscountedPrice$</h6>
+                                }
+                                else
+                                {
+                                    <h4>@item.Price$</h4>
 
+                                }
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
+                
+                
+            }
+           
 
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
 
-            <div class="product col-lg-4 col-6">
-                <a href="product-detail.html"><img src="~/assest/img/Product/1_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <i class="fa-solid fa-bars"></i>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
-
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-lg-4 col-6">
-                <a href="product-detail.html"><img src="~/assest/img/Product/2_119a31f2-2054-4483-93a3-841310e6bdfb_grande.jpg" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
-
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-lg-4 col-6">
-                <a href="product-detail.html"><img src="~/assest/img/Product/4_0fe2529b-f7ae-4ed5-a8ff-4fae623757f9_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
-
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-lg-4 col-6">
-                <a href=""><img src="~/assest/img/Product/6_03a522d6-f36a-4f59-a815-bbade4d87a6e_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
-
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
 
 
         </div>
@@ -285,48 +152,24 @@
                 </div>
             </div>
             <div class="news col-lg-6 d-flex row">
-                <div class="sa row d-flex">
+                @foreach (var blog in Model.Blogs.Take(3))
+                {
+                    <div class="sa row d-flex">
 
-                    <div class="col-lg-2 d-flex bor row">
-                        <div class="time">
-                            <h4>July</h4>
-                            <h1>08</h1>
+                        <div class="col-lg-2 d-flex bor row">
+                            <div class="time">
+                                <h4>@blog.Time.ToString("ddd")</h4>
+                                <h1>@blog.Time.ToString("dd")</h1>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 title">
+                            <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id"> <h3>@blog.Title</h3></a>
+                            <span><i class="fa-solid fa-user"></i> Jin Alkaid / <i class="fa-regular fa-pen-to-square"></i> 58 Comments</span>
+                            <h6>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint....</h6>
                         </div>
                     </div>
-                    <div class="col-lg-10 title">
-                        <a href=""> <h3>Sample Blog Post With Left Slidebar</h3></a>
-                        <span><i class="fa-solid fa-user"></i> Jin Alkaid / <i class="fa-regular fa-pen-to-square"></i> 58 Comments</span>
-                        <h6>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint....</h6>
-                    </div>
-                </div>
-                <div class="sa row d-flex">
-
-                    <div class="col-lg-2 d-flex bor row">
-                        <div class="time">
-                            <h4>July</h4>
-                            <h1>08</h1>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 title">
-                        <a href=""> <h3>Sample Blog Post With Left Slidebar</h3></a>
-                        <span><i class="fa-solid fa-user"></i> Jin Alkaid / <i class="fa-regular fa-pen-to-square"></i> 58 Comments</span>
-                        <h6>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint....</h6>
-                    </div>
-                </div>
-                <div class="sa row d-flex">
-
-                    <div class="col-lg-2 d-flex bor row">
-                        <div class="time">
-                            <h4>July</h4>
-                            <h1>08</h1>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 title">
-                        <a href=""> <h3>Sample Blog Post With Left Slidebar</h3></a>
-                        <span><i class="fa-solid fa-user"></i> Jin Alkaid / <i class="fa-regular fa-pen-to-square"></i> 58 Comments</span>
-                        <h6>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint....</h6>
-                    </div>
-                </div>
+                }
+               
             </div>
 
 
@@ -341,184 +184,56 @@
             <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/4/assets/home_line.png?v=178078056696408182271627441368" alt="">
         </div>
         <div class="carousel justify-content-between">
-            <div class="product col-lg-">
-                <a href=""><img src="~/assest/img/Product/6_03a522d6-f36a-4f59-a815-bbade4d87a6e_grande.png" alt=""></a>
-                <div class="icons text-center">
+            @foreach (var item in Model.Products)
+            {
+
+                <div class="product col-lg-4 col-6">
+                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"><img src="~/assest/img/Product/@item.MainImage" alt=""></a>
+                    <div class="icons text-center">
+                        <hr>
+                        <div class="content">
+                            <i class="fa-solid fa-bars"></i>
+                            <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
+                            <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
+
+                        </div>
+                    </div>
                     <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
+                    @if (item.IsBestSeller == true)
+                    {
 
-                    </div>
-                </div>
-                <hr>
-                <div class="bottom d-flex justify-content-between">
+                        <div class="sale">
+                            <h3>Sale</h3>
+                        </div>
+                    }
+                    <div class="bottom d-flex justify-content-between">
 
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="product col-lg-3">
-                <a href=""><img src="~/assest/img/Product/10_16854be2-a731-4970-984e-7f6e483d2405_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
+                        <div class="title">
+                            <h5>@item.Title</h5>
+                            <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
+                        </div>
+                        <div class="price text-end">
+                            @if (0 < item.DiscountedPrice)
+                            {
 
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
+                                <h4>@item.Price$</h4>
+                                <h6>@item.DiscountedPrice$</h6>
+                            }
+                            else
+                            {
+                                <h4>@item.Price$</h4>
 
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="product col-lg-3">
-                <a href=""><img src="~/assest/img/Product/4_0fe2529b-f7ae-4ed5-a8ff-4fae623757f9_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
 
-                    </div>
-                </div>
-                <hr>
-                <div class="bottom d-flex justify-content-between">
 
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
+            }
+            
 
-            <div class="product">
-                <a href=""><img src="~/assest/img/Product/10_16854be2-a731-4970-984e-7f6e483d2405_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
 
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
 
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="product">
-                <a href=""><img src="~/assest/img/Product/2_119a31f2-2054-4483-93a3-841310e6bdfb_grande.jpg" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="sale">
-                    <h3>Sale</h3>
-                </div>
-                <div class="bottom d-flex justify-content-between">
-
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="product ">
-                <a href=""><img src="~/assest/img/Product/1_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="bottom d-flex justify-content-between">
-
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="product">
-                <a href=""><img src="~/assest/img/Product/11_68ab6d0f-109c-429b-a903-4cbf60257806_grande.png" alt=""></a>
-                <div class="icons text-center">
-                    <hr>
-                    <div class="content">
-                        <a href="product-detail.html">  <i class="fa-solid fa-bars"></i></a>
-                        <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                        <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="bottom d-flex justify-content-between">
-
-                    <div class="title">
-                        <h5>Curabitur cursus dignis</h5>
-                        <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                    </div>
-                    <div class="price text-end">
-                        <h4>259$</h4>
-                        <h6>300$</h6>
-                    </div>
-                </div>
-            </div>
         </div>
         <hr>
     </div>
@@ -533,28 +248,12 @@
         </div>
 
         <div class="carousel-brand">
-            <div class="imgg">
-                <img src="~/assest/img/brandsimg/partners_logo_1.png" alt="">
-            </div>
-            <div class="imgg">
-                <img src="~/assest/img/brandsimg/partners_logo_2.png" alt="">
-            </div>
-            <div class="imgg">
-                <img src="~/assest/img/brandsimg/partners_logo_3.png" alt="">
-            </div>
-            <div class="imgg">
-                <img src="~/assest/img/brandsimg/partners_logo_4.png" alt="">
-            </div>
-            <div class="imgg">
-                <img src="~/assest/img/brandsimg/partners_logo_5.png" alt="">
-            </div>
-            <div class="imgg">
-                <img src="~/assest/img/brandsimg/partners_logo_6.png" alt="">
-            </div>
-            <div class="imgg">
-                <img src="~/assest/img/brandsimg/partners_logo_7.png" alt="">
-            </div>
-
+            @foreach (var item in Model.Brands)
+            {
+                <div class="imgg">
+                    <img src="~/assest/img/brandsimg/@item.Image" alt="">
+                </div>
+            }
         </div>
 
     </div>
