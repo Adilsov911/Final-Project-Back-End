@@ -1,4 +1,4 @@
-﻿
+﻿@model Blog
 <section id="top-2">
     <div class="container d-flex tp">
         <span>Home /</span> <h6>Blog Detail</h6>
@@ -75,53 +75,28 @@
                         <div class="sa row d-flex">
                             <div class="col-lg-2 d-flex bor row">
                                 <div class="time">
-                                    <h4>July</h4>
-                                    <h1>08</h1>
+                                    <h4>@Model.Time.ToString("ddd")</h4>
+                                    <h1>@Model.Time.ToString("dd")</h1>
                                 </div>
                             </div>
                             <div class="col-lg-10 title">
-                                <a href=""> <h3>Sample Blog Post With Left Slidebar</h3></a>
+                                <a href=""> <h3>@Model.Title</h3></a>
                             </div>
                         </div>
                     </div>
                     <div class="img">
-                        <a href="blog-detail.html"> <img src="~/assest/img/blog/img_blog1.jpg" alt=""></a>
+                        <a href="blog-detail.html"> <img src="~/assest/img/blog/@Model.Image" alt=""></a>
                     </div>
                     <div class="description">
                         <h6>
-                            JULY
-                            Sample Blog Post With Left Slidebar
-                            Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint.
-                            Braid skirt round sunglasses seam leather vintage Levi plaited. Flats holographic Acne grunge collarless denim chunky s
-                            ole cuff tucked t-shirt strong eyebrows. Clutch center part dress dungaree slip dress. Skinny jeans knitwear minimal tortoise-s
-                            hell sunglasses Céline sandal Cara D. lilac. Black floral 90s oxford chambray bomber powder blue cotton boots print. Cable knit knot
-                            ponytail ribbed sneaker sports luxe pastel Paris. Washed out skort white shirt Hermès vintage Givenchy razor pleats.
+                            @Model.Description
                         </h6>
-                        <h6>
-                            Tee loafer knot ponytail sandal shoe oversized sweatshirt Maison Martin Margiela
-                            chunky sole spearmint. Jil Sander Vasari denim vintage So-Cal envelope clutch gold collar Prada Sa
-                            ffiano Acne. Navy blue flats metallic bandeau skort denim shorts white shirt white. Cotton knitwear slip dress se
-                            am Givenchy bandeau maxi
-                        </h6>
-                        <h6>
-                            Lanvin flats seam cotton minimal Saint Laurent midi Céline la marinière. Powder blue playsuit oversized
-                            sweatshirt bomber chunky sole street style chignon vintage. Dress Jil Sander Vasari chambray boots luxe. Statement button u
-                            p navy blue slip dress skinny jeans indigo white shirt.
-                        </h6>
-                        <h6>
-                            Maison Martin Margiela cami texture la marinière ecru envelope clutch So-Cal relaxed silhouette.
-                            Cashmere chunky sole center part round sunglasses holographic skirt sneaker Acne bandeau. Leggings Lanvin
-                            plaited ribbed sports luxe Paris white metallic cami. Givenchy clutch black Furla navy blue grunge dress luxe.
-                            Oversized sweatshirt strong eyebrows knot ponytail indigo playsuit A.P.C. Floral gold collar Maison Martin Margiela
-                            vintage relaxed la marinière statement button up tee. Razor pleats chignon boots So-Cal cable knit seam denim chambray
-                            flats Prada Saffiano. Leather leather tote neutral denim shorts collarless Cara D. washed out. 90s vintage Levi texture
-                            envelope clutch crop ecru skinny jeans. Rings loafer Céline pastel sandal dove grey cotton Hermès.
-                        </h6>
+                        
 
                         <div class="bottom justify-content-between d-flex mt-5">
 
                             <div class="left">
-                                <h6>JIN ALKAID / <a href="">58 COMMENT(S)</a> </h6>
+                                <h6>@Model.AtohorName / <a href="">58 COMMENT(S)</a> </h6>
                             </div>
                             <div class="right">
                                 <button type="button" class="btn btn-light">POST COMMENT</button>

@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FinalProjectJewelry.DAL;
+using FinalProjectJewelry.Models;
+using FinalProjectJewelry.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +12,26 @@ namespace FinalProjectJewelry.Controllers
 {
     public class BlogController : Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+
+        public BlogController(AppDbContext context)
         {
-            return View();
+            _context = context;
         }
-        public IActionResult Detail()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            BlogVM homeVM = new BlogVM
+            {
+                Blogs = await _context.Blogs.Where(s => s.IsDeleted == false).ToListAsync()
+                
+            };
+
+            return View(homeVM);
+        }
+        public async Task<IActionResult> Detail(int? id)
+        {
+            Blog blog = await _context.Blogs.FirstOrDefaultAsync(p => p.IsDeleted == false && p.Id == id);
+            return View(blog);
         }
     }
 }

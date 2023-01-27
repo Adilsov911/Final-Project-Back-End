@@ -156,4 +156,3 @@ C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\ne
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Card\Index.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
-C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
