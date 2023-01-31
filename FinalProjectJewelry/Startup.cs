@@ -1,11 +1,14 @@
 
 using FinalProjectJewelry.DAL;
+using FinalProjectJewelry.Interfaces;
+using FinalProjectJewelry.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +27,17 @@ namespace FinalProjectJewelry
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
 
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-           
-           
+            services.AddScoped<ILayoutServices, LayoutServices>();
+
             services.AddHttpContextAccessor();
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddSession();
@@ -53,7 +58,10 @@ namespace FinalProjectJewelry
 
             app.UseSession();
 
-           
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

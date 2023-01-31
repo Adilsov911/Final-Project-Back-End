@@ -40,6 +40,25 @@ namespace FinalProjectJewelry.Controllers
 
             return View(product);
         }
+        public async Task<IActionResult> Search(int? id, string search)
+        {
+            IEnumerable<ProductListVM> products = await _context.Products
+                    .Where(
+                    p => id != null ? p.CategoryId == id : true &&
+                    p.Title.ToLower().Contains(search.ToLower()))
+                    .OrderByDescending(p => p.Id)
+                    .Take(3)
+                    .Select(x => new ProductListVM
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        Image = x.MainImage
+                    })
+                    .ToListAsync();
+
+
+            return PartialView("_SearchPartial", products);
+        }
 
     }
 }

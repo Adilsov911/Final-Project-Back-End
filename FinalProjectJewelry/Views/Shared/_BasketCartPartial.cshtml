@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BasketVM>
+@{
+    ViewData["Title"] = "_BasketCartPartial";
+}
+
+<div class="Carts col-lg-3 text-center d-flex">
+
+    <h5> <a asp-controller="card" asp-action="index"> CART | <span>@Model.Count()</span></a></h5>
+    <div class="div position-absolute">
+        @foreach (BasketVM basketVM in Model)
+            {
+
+                <div class="sa d-flex align-items-center col-lg-12">
+                    <div class="imgh">
+                        <a asp-controller="shop" asp-action="detail" asp-route-id="@basketVM.Id"><img src="~/assest/img/Product/@basketVM.Image" alt=""></a>
+                    </div>
+                    <div class="title">
+                        <a asp-controller="shop" asp-action="detail" asp-route-id="@basketVM.Id"><h6>@basketVM.Title</h6></a>
+                        <div class="price">
+                            <h5>Price :@basketVM.Price$</h5>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        <hr>
+        <div class="text-center bottom">
+            <div class="Allprice d-block">
+                <h5>Total Price :@Model.Sum(b => b.Price * b.Count)$</h5>
+                <button type="button" class="btn">CHECKOUT</button>
+            </div>
+            <button type="button" class="btn">VIEW CARD</button>
+        </div>
+    </div>
+</div>
+

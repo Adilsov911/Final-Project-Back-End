@@ -1,4 +1,9 @@
-﻿
+﻿@inject ILayoutServices layoutservices
+
+@{
+    Dictionary<string, string> settings = await layoutservices.GetSettingAsync();
+        }
+
 <section id="top-2">
     <div class="container d-flex tp">
         <span>Home /</span> <h6>Contact</h6>
@@ -35,10 +40,10 @@
                 <h6><i class="fa-solid fa-house"></i> CONTACT INFORMATION</h6>
                 <h5>OFFICE ADDRESS</h5>
                 <P>
-                    249 Ung Van Khiem Street, Binh Thanh Dist, HCM city
+                    @settings.First(s => s.Key == "Location").Value
                     +84 0123456xx
                 </P>
-                <P><i class="fa-solid fa-envelope"></i>support@gmail.com</P>
+                <P><i class="fa-solid fa-envelope"></i>@settings.First(s => s.Key == "Mail").Value</P>
             </div>
             <div class="ico">
                 <h2>FOLLOW US ON</h2>

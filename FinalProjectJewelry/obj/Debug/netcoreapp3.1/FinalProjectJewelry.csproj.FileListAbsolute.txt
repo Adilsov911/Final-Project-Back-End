@@ -156,3 +156,8 @@ C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\ne
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Card\Index.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BasketCartPartial.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SearchPartial.cshtml.g.cs

@@ -1,4 +1,6 @@
 ﻿@model Product
+
+
 <section id="top-2">
     <div class="container d-flex tp">
         <span>Home /</span> <h6>Products</h6>
@@ -26,7 +28,9 @@
                                 
                             </div>
                             <div class="big">
-                                <span id="big-image" class="img" quickbeam="image" style="background-image: url('https://cdn.shopify.com/s/files/1/0908/7252/products/1_1024x1024.jpg?v=1435560927')" ></span>
+                                <div class="big-image w-100">
+                                    <img src="~/assest/img/Product/@Model.MainImage" alt="">
+                                </div>
                                 <div id="banner-gallery" class="swipe">
                                     <div class="swipe-wrap">
                                         <div style="background-image: url('~/assest/img/Product/10_16854be2-a731-4970-984e-7f6e483d2405_grande.png')"></div>

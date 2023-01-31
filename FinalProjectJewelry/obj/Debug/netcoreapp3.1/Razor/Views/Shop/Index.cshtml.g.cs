@@ -26,8 +26,22 @@ using FinalProjectJewelry.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\Views\_ViewImports.cshtml"
+using FinalProjectJewelry.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\Views\_ViewImports.cshtml"
+using FinalProjectJewelry.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"10fcf61a6fdf495e89a117fcd3698e8497ed5b26", @"/Views/Shop/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"58bef7bccc4ab23566a2685e990715faa40511bf", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"401f64a50d9a99c8e61bccc21b4a6f3004600b9e", @"/Views/_ViewImports.cshtml")]
     public class Views_Shop_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ShopVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -86,7 +100,7 @@ using FinalProjectJewelry.ViewModels;
 
                     <select class=""filter-item-selector FilterByCollections"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b265562", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b265986", async() => {
                 WriteLiteral("Product type");
             }
             );
@@ -108,7 +122,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b267373", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b267797", async() => {
                 WriteLiteral("ALL");
             }
             );
@@ -124,7 +138,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b268553", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b268977", async() => {
                 WriteLiteral("Hoodies Wear");
             }
             );
@@ -140,7 +154,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b269742", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2610166", async() => {
                 WriteLiteral("Sweaters Wear");
             }
             );
@@ -156,7 +170,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </select>\r\n\r\n                    <select class=\"filter-item-selector FilterBySizes\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2611046", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2611471", async() => {
                 WriteLiteral("Color");
             }
             );
@@ -178,7 +192,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2612851", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2613276", async() => {
                 WriteLiteral("All");
             }
             );
@@ -203,7 +217,7 @@ using FinalProjectJewelry.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2614356", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2614781", async() => {
                 WriteLiteral(" ");
 #nullable restore
 #line 38 "C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\Views\Shop\Index.cshtml"
@@ -235,7 +249,7 @@ using FinalProjectJewelry.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                    </select>\r\n\r\n                    <select class=\"filter-item-selector FilterByVendors\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2616120", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2616545", async() => {
                 WriteLiteral("Size");
             }
             );
@@ -257,7 +271,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2617924", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2618349", async() => {
                 WriteLiteral("All");
             }
             );
@@ -282,7 +296,7 @@ using FinalProjectJewelry.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2619400", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2619825", async() => {
                 WriteLiteral(" ");
 #nullable restore
 #line 48 "C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\Views\Shop\Index.cshtml"
@@ -324,7 +338,7 @@ using FinalProjectJewelry.ViewModels;
                     <h6 class=""text-start"">Shorty By</h6>
                     <select class=""filter-item-selector FilterByVendors"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2621387", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2621812", async() => {
                 WriteLiteral("Alphabetically,  A-Z");
             }
             );
@@ -346,7 +360,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2623207", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2623632", async() => {
                 WriteLiteral("Featured");
             }
             );
@@ -362,7 +376,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2624393", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2624818", async() => {
                 WriteLiteral("Best Selling");
             }
             );
@@ -378,7 +392,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2625583", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2626008", async() => {
                 WriteLiteral("Alphabetically,  Z-A");
             }
             );
@@ -394,7 +408,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2626781", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2627206", async() => {
                 WriteLiteral("Price Low to High");
             }
             );
@@ -410,7 +424,7 @@ using FinalProjectJewelry.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2627976", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2628401", async() => {
                 WriteLiteral("Price Hihgh to Low");
             }
             );
@@ -450,8 +464,8 @@ using FinalProjectJewelry.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                    <div class=\"product col-lg-3 col-6\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2629815", async() => {
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2630032", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2630240", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "10fcf61a6fdf495e89a117fcd3698e8497ed5b2630457", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

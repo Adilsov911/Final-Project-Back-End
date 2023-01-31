@@ -77,7 +77,7 @@
                             <div class="content">
                                 <i class="fa-solid fa-bars"></i>
                                 <div id="one" class="button"> <i class="fa-solid fa-eye"></i></div>
-                                <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
+                                <a class="addtobasket" asp-controller="basket" asp-action="addtobasket" asp-route-id="@item.Id"><i class="fa-solid fa-basket-shopping"></i></a>
 
                             </div>
                         </div>
@@ -187,8 +187,8 @@
             @foreach (var item in Model.Products)
             {
 
-                <div class="product col-lg-4 col-6">
-                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"><img src="~/assest/img/Product/@item.MainImage" alt=""></a>
+                <div class="product">
+                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"><img class="w-100" src="~/assest/img/Product/@item.MainImage" alt=""></a>
                     <div class="icons text-center">
                         <hr>
                         <div class="content">
