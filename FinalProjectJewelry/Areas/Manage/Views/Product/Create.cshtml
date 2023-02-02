@@ -32,7 +32,21 @@
                 <input asp-for="DiscountedPrice" class="form-control" placeholder="DiscountedPrice">
                 <span asp-validation-for="DiscountedPrice" class="text text-danger"></span>
             </div>
-
+            <div class="form-check">
+                <input asp-for="IsNewArrival" class="form-check-input">
+                <label asp-for="IsNewArrival" class="form-check-label"></label>
+                <span asp-validation-for="IsNewArrival" class="text text-danger"></span>
+            </div>
+            <div class="form-check">
+                <input asp-for="IsBestSeller" class="form-check-input">
+                <label asp-for="IsBestSeller" class="form-check-label"></label>
+                <span asp-validation-for="IsBestSeller" class="text text-danger"></span>
+            </div>
+            <div class="form-check">
+                <input asp-for="IsFeatured" class="form-check-input">
+                <label asp-for="IsFeatured" class="form-check-label"></label>
+                <span asp-validation-for="IsFeatured" class="text text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Count"></label>
                 <input asp-for="Count" class="form-control" placeholder="Count">
@@ -43,7 +57,7 @@
                 <input asp-for="Description" class="form-control" placeholder="Description">
                 <span asp-validation-for="Description" class="text text-danger"></span>
             </div>
-          
+
             <div class="form-group">
                 <label asp-for="MainImageFile"></label>
                 <input asp-for="MainImageFile" accept="image/jpeg" class="form-control">
@@ -73,7 +87,7 @@
             </div>
             <div id="parentList" class="form-group">
                 <label>Sizes</label>
-                <select asp-for="SizeIds"  class="form-control" asp-items="selectListSizesItems">
+                <select asp-for="SizeIds" class="form-control" asp-items="selectListSizesItems">
                 </select>
                 <span asp-validation-for="SizeIds" class="text text-danger"></span>
             </div>

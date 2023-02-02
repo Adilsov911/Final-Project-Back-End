@@ -1,5 +1,7 @@
 ﻿using FinalProjectJewelry.DAL;
+using FinalProjectJewelry.Extension;
 using FinalProjectJewelry.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,12 +15,14 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public ProductController(AppDbContext context)
+        public ProductController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
-       
+
         public async Task<IActionResult> Index()
         {
             IEnumerable<Product> products = await _context.Products
@@ -75,7 +79,16 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
                 ModelState.AddModelError("BrandId", "Secilen Brand Yanlisdir");
                 return View(product);
             }
-
+            if (product.MainImageFile != null)
+            {
+                
+                if (!product.MainImageFile.IsSizeOkay(2))
+                {
+                    ModelState.AddModelError("ImageFile", "File must be max 2mb");
+                    return View();
+                }
+                product.MainImage = product.MainImageFile.SaveImg(_env.WebRootPath, "assest/img/Product");
+            }
             List<ProductTag> productTags = new List<ProductTag>();
 
             foreach (int tagId in product.TagIds)
@@ -130,11 +143,11 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
             }
             List<ProductSize> productSizes = new List<ProductSize>();
 
-            foreach (int sizeId in product.ColorIds)
+            foreach (int sizeId in product.SizeIds)
             {
                 if (product.SizeIds.Where(t => t == sizeId).Count() > 1)
                 {
-                    ModelState.AddModelError("TagIds", "Bir Tagdan Bir Ddefe Secilmelidir");
+                    ModelState.AddModelError("SizeIds", "Bir Tagdan Bir Ddefe Secilmelidir");
                     return View(product);
                 }
 
@@ -199,13 +212,13 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
             ViewBag.Tags = await _context.Tags.Where(c => c.IsDeleted == false).ToListAsync();
             ViewBag.Colors = await _context.Colors.Where(c => c.IsDeleted == false).ToListAsync();
             ViewBag.Sizes = await _context.Sizes.Where(c => c.IsDeleted == false).ToListAsync();
-
+            Product existedProduct = await _context.Products.Include(c => c.ProductTags).Include(c => c.ProductSizes).Include(p => p.ProductColors).FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
             if (!ModelState.IsValid)
             {
                 return View(product);
             }
 
-            Product existedProduct = await _context.Products.Include(c => c.ProductTags).Include(c=>c.ProductSizes).Include(p=>p.ProductColors).FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+           
 
             _context.ProductTags.RemoveRange(existedProduct.ProductTags);
             _context.ProductColors.RemoveRange(existedProduct.ProductColors);
@@ -215,7 +228,26 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
 
             List<ProductTag> productTags = new List<ProductTag>();
             List<ProductColor> productColors = new List<ProductColor>();
-           
+
+
+            if (product.MainImageFile != null)
+            {
+                if (!product.MainImageFile.IsImage())
+                {
+                    ModelState.AddModelError("ImageFile", "Choose correct format file");
+                    return View();
+                }
+                if (!product.MainImageFile.IsSizeOkay(2))
+                {
+                    ModelState.AddModelError("ImageFile", "File must be max 2mb");
+                    return View();
+                }
+                Helpers.Helper.DeleteImg(_env.WebRootPath,"assest/img/Product", existedProduct.MainImage);
+                existedProduct.MainImage = product.MainImageFile.SaveImg(_env.WebRootPath, "assest/img/Product");
+
+
+            }
+
 
             foreach (int tagId in product.TagIds)
             {
@@ -240,12 +272,15 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
                 };
 
                 productTags.Add(productTag);
-            } 
+            }
+
+
+            existedProduct.Title = product.Title;
             existedProduct.ProductTags = productTags;
 
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
         }
     }
 }
