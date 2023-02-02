@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FinalProjectJewelry.Areas.Manage.Controllers
 {
+    [Area("manage")]
     public class DashboardController : Controller
     {
-        [Area("manage")]
         public IActionResult Index()
         {
             return View();

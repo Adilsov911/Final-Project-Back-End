@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FinalProjectJewelry.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,10 @@ namespace FinalProjectJewelry.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            string basket = HttpContext.Request.Cookies["basket"];
+            List<BasketVM> products = null;
+            products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            return View(products);
         }
     }
 }

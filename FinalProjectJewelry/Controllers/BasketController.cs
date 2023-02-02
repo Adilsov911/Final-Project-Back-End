@@ -72,8 +72,6 @@ namespace FinalProjectJewelry.Controllers
                 products.Add(basketVM);
             }
 
-            basket = JsonConvert.SerializeObject(products);
-            HttpContext.Response.Cookies.Append("basket", basket);
 
             foreach (BasketVM basketVM in products)
             {
@@ -83,6 +81,8 @@ namespace FinalProjectJewelry.Controllers
                 basketVM.Image = product.MainImage;
                 basketVM.Price = product.Price;
             }
+            basket = JsonConvert.SerializeObject(products);
+            HttpContext.Response.Cookies.Append("basket", basket);
 
             return PartialView("_BasketCartPartial", products);
         }

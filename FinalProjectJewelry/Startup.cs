@@ -37,7 +37,7 @@ namespace FinalProjectJewelry
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddScoped<ILayoutServices, LayoutServices>();
-
+          
             services.AddHttpContextAccessor();
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddSession();
@@ -65,9 +65,14 @@ namespace FinalProjectJewelry
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                       name: "areas",
+                       pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+                   );
+                endpoints.MapControllerRoute(
                       name: "default",
                       pattern: "{controller=home}/{action=index}/{id?}"
                   );
+
             });
             
         }

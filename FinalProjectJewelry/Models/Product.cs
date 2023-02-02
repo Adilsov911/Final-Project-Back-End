@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,7 +20,6 @@ namespace FinalProjectJewelry.Models
         public string Description { get; set; }
         [StringLength(255)]
         public string MainImage { get; set; }
-        [StringLength(255)]
         public bool IsNewArrival { get; set; }
         public bool IsBestSeller { get; set; }
         public bool IsFeatured { get; set; }
@@ -32,6 +33,18 @@ namespace FinalProjectJewelry.Models
         public IEnumerable<ProductImage> ProductImages { get; set; }
         public IEnumerable<ProductTag> ProductTags { get; set; }
         public IEnumerable<ProductColor> ProductColors { get; set; }
+
+        [NotMapped]
+        public IFormFile MainImageFile { get; set; }
+       
+        [NotMapped]
+        public IEnumerable<IFormFile> ProductImagesFiles { get; set; }
+        [NotMapped]
+        public IEnumerable<int> TagIds { get; set; }
+        [NotMapped]
+        public IEnumerable<int> ColorIds { get; set; }
+        [NotMapped]
+        public IEnumerable<int> SizeIds { get; set; }
 
 
     }
