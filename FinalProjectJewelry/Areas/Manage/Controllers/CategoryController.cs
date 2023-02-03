@@ -69,7 +69,7 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
 
             category.Name = category.Name.Trim();
             category.IsDeleted = false;
-            category.CreatedAt = DateTime.UtcNow.AddHours(4);
+            category.DeletedAt = DateTime.UtcNow.AddHours(4);
             category.CreatedBy = "System";
 
             await _context.Categories.AddAsync(category);

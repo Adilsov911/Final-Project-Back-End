@@ -171,3 +171,6 @@ C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\ne
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Index.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Update.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Create.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Index.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Create.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Update.cshtml.g.cs

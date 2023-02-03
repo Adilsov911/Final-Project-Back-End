@@ -1,0 +1,46 @@
+﻿@model Slider
+@{ ViewData["Title"] = "Creat";
+    IEnumerable<Slider> sliders = ViewBag.Slider;
+    SelectList selectListItems = new SelectList(sliders, nameof(Slider.Id)); }
+
+
+
+<div class="d-flex row">
+    <div class="row justify-content-between mt-5">
+        <div class="col-lg-3">
+            <h1 class="h3 text-gray-800">Category Creat</h1>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <form method="post" enctype="multipart/form-data">
+
+
+                <div id="mainImage" class="form-group">
+                    <label asp-for="SliderMainFile"></label>
+                    <input asp-for="SliderMainFile" style="color:wheat" accept="image/jpeg" class="form-control">
+                    <span asp-validation-for="SliderMainFile" class="text text-danger"></span>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Right" class="form-check-input">
+                    <label asp-for="Right" style="color: wheat;" class="form-check-label"></label>
+                    <span asp-validation-for="Right" class="text text-danger"></span>
+                </div>
+                <div id="mainImage" class="form-group">
+                    <label asp-for="SliderTitleFile"></label>
+                    <input asp-for="SliderTitleFile" style="color:wheat" accept="image/jpeg" class="form-control">
+                    <span asp-validation-for="SliderTitleFile" class="text text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
