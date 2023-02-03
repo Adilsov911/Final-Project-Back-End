@@ -8,11 +8,11 @@
 <div class="d-flex row">
 <div class="row justify-content-between mt-5 p-5 w-100">
     <div class="col-lg-2">
-        <h1 class="h3 mb-4 text-gray-800">Categories Page</h1>
+        <h1 class="h3 mb-4 text-gray-800" style="color:wheat">Product Page</h1>
     </div>
 
     <div class="col-lg-1">
-        <a asp-area="manage" asp-controller="product" asp-action="create" class="btn btn-primary">Create</a>
+        <a asp-area="manage" asp-controller="product" asp-action="create"  class="btn btn-primary">Create</a>
     </div>
 
 </div>
@@ -21,30 +21,30 @@
         <div class="col-lg-12 mt-2">
             <table class="table table-bordered table-striped">
                 <thead>
-                    <tr>
+                    <tr style="color:wheat">
                         <th>№</th>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Brand</th>
                         <th>Tags</th>
-                        <th>Created At</th>
+                        <th>Updated At</th>
                         <th>Setting</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (Product product in Model)
                     {
-                        <tr>
-                            <td>@counter</td>
-                            <td width="75">
+                        <tr style="color:wheat">
+                            <td style="color:wheat">@counter</td>
+                            <td  width="75">
                                 <img style="width: 72px; height: 68px; margin-bottom:20px;" src="~/assest/img/Product/@product.MainImage" alt="Alternate Text" />
                             </td>
-                            <td>@product.Title</td>
-                            <td>@product.Category?.Name</td>
-                            <td>@product.Brand?.Name</td>
-                            <td>@(product.ProductTags != null && product.ProductTags.Count() > 0 ? String.Join(", ", product.ProductTags.Select(x => x.Tag.Name)) : "")</td>
-                            <td>@product.CreatedAt?.ToString("dd / MM / yyyy")</td>
+                            <td style="color:wheat">@product.Title</td>
+                            <td style="color:wheat">@product.Category?.Name</td>
+                            <td style="color:wheat">@product.Brand?.Name</td>
+                            <td style="color:wheat">@(product.ProductTags != null && product.ProductTags.Count() > 0 ? String.Join(", ", product.ProductTags.Select(x => x.Tag.Name)) : "")</td>
+                            <td style="color:wheat">@product.UpdatedAt?.ToString("dd / MM / yyyy")</td>
                             <td>
                                 <a class="btn btn-warning" asp-area="manage" asp-controller="product" asp-action="update" asp-route-id="@product.Id">Update</a>
                                 <a class="btn btn-danger" asp-area="manage" asp-controller="product" asp-action="delete" asp-route-id="@product.Id">Delete</a>

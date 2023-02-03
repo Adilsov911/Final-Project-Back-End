@@ -18,72 +18,84 @@
 
             <div class="form-group">
                 <label asp-for="Title"></label>
-                <input asp-for="Title" class="form-control" placeholder="Title">
+                <input asp-for="Title" style="color:wheat;" class="form-control" placeholder="Title">
                 <span asp-validation-for="Title" class="text text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price"></label>
-                <input asp-for="Price" class="form-control" placeholder="Price">
+                <input asp-for="Price" style="color:wheat;" class="form-control" placeholder="Price">
                 <span asp-validation-for="Price" class="text text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DiscountedPrice"></label>
-                <input asp-for="DiscountedPrice" class="form-control" placeholder="DiscountedPrice">
+                <input asp-for="DiscountedPrice" style="color:wheat;" class="form-control" placeholder="DiscountedPrice">
                 <span asp-validation-for="DiscountedPrice" class="text text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Count"></label>
-                <input asp-for="Count" class="form-control" placeholder="Count">
+                <input asp-for="Count" style="color:wheat;" class="form-control" placeholder="Count">
                 <span asp-validation-for="Count" class="text text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description"></label>
-                <input asp-for="Description" class="form-control" placeholder="Description">
+                <input asp-for="Description" style="color:wheat;" class="form-control" placeholder="Description">
                 <span asp-validation-for="Description" class="text text-danger"></span>
             </div>
             <div class="form-check">
                 <input asp-for="IsNewArrival" class="form-check-input">
-                <label asp-for="IsNewArrival" class="form-check-label"></label>
+                <label asp-for="IsNewArrival" style="color:wheat;" class="form-check-label"></label>
                 <span asp-validation-for="IsNewArrival" class="text text-danger"></span>
             </div>
             <div class="form-check">
                 <input asp-for="IsBestSeller" class="form-check-input">
-                <label asp-for="IsBestSeller" class="form-check-label"></label>
+                <label asp-for="IsBestSeller" style="color:wheat;" class="form-check-label"></label>
                 <span asp-validation-for="IsBestSeller" class="text text-danger"></span>
             </div>
             <div class="form-check">
                 <input asp-for="IsFeatured" class="form-check-input">
-                <label asp-for="IsFeatured" class="form-check-label"></label>
+                <label asp-for="IsFeatured" style="color:wheat;" class="form-check-label"></label>
                 <span asp-validation-for="IsFeatured" class="text text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MainImageFile"></label>
-                <input asp-for="MainImageFile" accept="image/jpeg" class="form-control">
+                <input asp-for="MainImageFile" style="color:wheat;" accept="image/jpeg" class="form-control">
                 <span asp-validation-for="MainImageFile" class="text text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="ProductImagesFiles"></label>
-                <input asp-for="ProductImagesFiles" accept="image/jpeg" class="form-control">
+                <input asp-for="ProductImagesFiles" style="color:wheat;" accept="image/jpeg" class="form-control">
                 <span asp-validation-for="ProductImagesFiles" class="text text-danger"></span>
             </div>
             <div id="parentList" class="form-group">
                 <label>Brand</label>
-                <select asp-for="BrandId" class="form-control" asp-items="selectListBrandItems">
+                <select asp-for="BrandId" style="color:wheat;" class="form-control" asp-items="selectListBrandItems">
                 </select>
             </div>
             <div id="parentList" class="form-group">
                 <label>Category</label>
-                <select asp-for="CategoryId" class="form-control" asp-items="selectListCategoriesItems">
+                <select asp-for="CategoryId" style="color:wheat;" class="form-control" asp-items="selectListCategoriesItems">
                 </select>
             </div>
             <div id="parentList" class="form-group">
                 <label>Tag</label>
-                <select asp-for="TagIds" class="form-control" asp-items="selectListTagsItems">
+                <select asp-for="TagIds" style="color: wheat; height: 1%;" class="form-control" asp-items="selectListTagsItems">
                 </select>
                 <span asp-validation-for="TagIds" class="text text-danger"></span>
             </div>
-            
+            <div id="parentList" class="form-group">
+                <label>Sizes</label>
+                <select asp-for="SizeIds" style="color: wheat; height: 1%;" class="form-control" asp-items="selectListSizesItems">
+                </select>
+                <span asp-validation-for="SizeIds" class="text text-danger"></span>
+            </div>
+            <div id="parentList" style="color:aliceblue;" class="form-group">
+                <label>Colors</label>
+                <select asp-for="ColorIds"style="color:wheat; height:1%;" class="form-control" asp-items="selectListColorsItems">
+                </select>
+                <span asp-validation-for="ColorIds" class="text text-danger"></span>
+            </div>
+
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

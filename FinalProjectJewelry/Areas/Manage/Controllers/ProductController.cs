@@ -237,9 +237,9 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
                     ModelState.AddModelError("ImageFile", "Choose correct format file");
                     return View();
                 }
-                if (!product.MainImageFile.IsSizeOkay(2))
+                if (!product.MainImageFile.IsSizeOkay(5))
                 {
-                    ModelState.AddModelError("ImageFile", "File must be max 2mb");
+                    ModelState.AddModelError("ImageFile", "File must be max 5mb");
                     return View();
                 }
                 Helpers.Helper.DeleteImg(_env.WebRootPath,"assest/img/Product", existedProduct.MainImage);
@@ -247,7 +247,6 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
 
 
             }
-
 
             foreach (int tagId in product.TagIds)
             {
@@ -274,13 +273,102 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
                 productTags.Add(productTag);
             }
 
+            foreach (int sizeId in product.SizeIds)
+            {
+                if (product.SizeIds.Where(t => t == sizeId).Count() > 1)
+                {
+                    ModelState.AddModelError("TagIds", "Bir Tagdan Bir Ddefe Secilmelidir");
+                    return View(product);
+                }
 
+                if (!await _context.Sizes.AnyAsync(c => c.IsDeleted == false && c.Id == sizeId))
+                {
+                    ModelState.AddModelError("TagIds", "Secilen Tag  Yanlisdir");
+                    return View(product);
+                }
+
+                ProductSize productSize = new ProductSize
+                {
+                    CreatedAt = DateTime.UtcNow.AddHours(+4),
+                    CreatedBy = "System",
+                    IsDeleted = false,
+                    SizeId = sizeId
+                };
+
+                productSizes.Add(productSize);
+            }
+            foreach (int colorId in product.ColorIds)
+            {
+                if (product.ColorIds.Where(t => t == colorId).Count() > 1)
+                {
+                    ModelState.AddModelError("TagIds", "Bir Tagdan Bir Ddefe Secilmelidir");
+                    return View(product);
+                }
+
+                if (!await _context.Colors.AnyAsync(c => c.IsDeleted == false && c.Id == colorId))
+                {
+                    ModelState.AddModelError("TagIds", "Secilen Tag  Yanlisdir");
+                    return View(product);
+                }
+
+                ProductColor productColor = new ProductColor
+                {
+                    CreatedAt = DateTime.UtcNow.AddHours(+4),
+                    CreatedBy = "System",
+                    IsDeleted = false,
+                    ColorId = colorId
+                };
+
+                productColors.Add(productColor);
+            }
+
+            existedProduct.Price = product.Price;
+            existedProduct.IsBestSeller = product.IsBestSeller;
+            existedProduct.Description = product.Description;
+            existedProduct.DiscountedPrice = product.DiscountedPrice;
             existedProduct.Title = product.Title;
             existedProduct.ProductTags = productTags;
+            existedProduct.ProductSizes = productSizes;
+            existedProduct.ProductColors = productColors;
 
-                await _context.SaveChangesAsync();
+            existedProduct.UpdatedAt = DateTime.UtcNow.AddHours(4);
+            existedProduct.UpdatedBy = "System";
+
+            await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Id Bos Ola Bilmez");
+            }
+
+            Product product = await _context.Products
+                .FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+
+            if (product == null)
+            {
+                return NotFound("Id Yanlisdir");
+            }
+
+           
+
+            product.IsDeleted = true;
+            product.DeletedBy = "";
+            product.DeletedAt = DateTime.UtcNow.AddHours(+4);
+
+            //await _context.Products.AddRangeAsync();
+
+            
+
+            _context.Products.Remove(product);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
     }
 }
