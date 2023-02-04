@@ -6,7 +6,7 @@
 <div class="Carts col-lg-3 text-center d-flex">
 
     <h5> <a asp-controller="card" asp-action="index"> CART | <span>@Model.Count()</span></a></h5>
-    <div class="div position-absolute">
+    <div class="div position-absolute " style="top:11%;">
         @foreach (BasketVM basketVM in Model)
             {
 
@@ -27,9 +27,9 @@
         <div class="text-center bottom">
             <div class="Allprice d-block">
                 <h5>Total Price :@Model.Sum(b => b.Price * b.Count)$</h5>
-                <button type="button" class="btn">CHECKOUT</button>
+                <button type="submit" asp-controller="card" asp-action="index" class="btn"> <a asp-controller="card" asp-action="index"> </a> CHECKOUT</button>
             </div>
-            <button type="button" class="btn">VIEW CARD</button>
+            <button type="button" class="btn"> <a asp-controller="card" asp-action="index" ></a>VIEW CARD</button>
         </div>
     </div>
 </div>

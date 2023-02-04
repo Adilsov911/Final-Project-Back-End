@@ -1,14 +1,22 @@
-﻿@inject ILayoutServices layoutservices
-
+﻿@using Microsoft.AspNetCore.Identity
+@inject ILayoutServices layoutservices
+@inject UserManager<AppUser> _userManager
 @{ Dictionary<string, string> settings = await layoutservices.GetSettingAsync();
-   IEnumerable<Category> categories = await layoutservices.GetCategoriesAsync();
+    IEnumerable<Category> categories = await layoutservices.GetCategoriesAsync();
     IEnumerable<BasketVM> basketVMs = await layoutservices.GetBaskteAsync();
     HeaderVM headerVM = new HeaderVM
     {
         BasketVMs = basketVMs,
         Categories = categories,
         Settings = settings
-    }; }
+    };
+    AppUser appUser = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+    }
+    }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,14 +151,22 @@
 
             </div>
             <div class="col-lg-9 d-flex justify-content-end">
-                <div class="login m-2">
+                @if (appUser != null)
+                {
+                    <div class="login m-2">
 
-                    <h6> <a class=" text-dark" href=""> MY ACCOUNT</a></h6>
+                        <h6> <a class=" text-dark" href=""> MY ACCOUNT</a></h6>
 
-                </div>
-                <div class="Register">
-                    <a class=" text-dark" href="Login.html">LOGIN</a> /  <a class="text-dark" href="Register.html">CREATE AN ACCOUNT</a>
-                </div>
+                    </div>
+                   
+                }
+                else
+                {
+
+                    <div class="Register">
+                        <a class=" text-dark" asp-controller="accountcontroller1" asp-action="Login">LOGIN</a> /  <a class="text-dark" asp-controller="accountcontroller1" asp-action="register">CREATE AN ACCOUNT</a>
+                    </div>
+                }
                 <div class="logos">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -225,7 +241,7 @@
                     <ul id="searchList" style="background-color:white; text-decoration:none; width:100%; height:auto; position:absolute; z-index:999; border:1px solid">
                         <li>
 
-                         </li>
+                        </li>
                     </ul>
                 </ul>
             </div>

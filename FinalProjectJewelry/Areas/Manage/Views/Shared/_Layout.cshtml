@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<AppUser> _userManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -182,7 +186,7 @@
         @RenderBody()
 
     </div>
-         <!-- container-scroller -->
+    <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="~/manage/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
@@ -204,5 +208,5 @@
     <!-- Custom js for this page -->
     <script src="~/manage/js/dashboard.js"></script>
     <!-- End custom js for this page -->
-  </body>
+</body>
 </html>

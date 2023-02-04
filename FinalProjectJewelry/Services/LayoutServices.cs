@@ -3,6 +3,7 @@ using FinalProjectJewelry.Interfaces;
 using FinalProjectJewelry.Models;
 using FinalProjectJewelry.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
@@ -16,11 +17,14 @@ namespace FinalProjectJewelry.Services
     {
         private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly UserManager<AppUser> _userManager;
 
-        public LayoutServices(AppDbContext context, IHttpContextAccessor httpContextAccessor)
+        public LayoutServices(AppDbContext context, IHttpContextAccessor httpContextAccessor, UserManager<AppUser> userManager)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _userManager = userManager;
+
         }
 
         public async Task<IEnumerable<BasketVM>> GetBaskteAsync()
