@@ -40,8 +40,15 @@ using FinalProjectJewelry.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\Areas\Manage\Views\_ViewImports.cshtml"
+using FinalProjectJewelry.Areas.Manage.ViewModels.Account;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Areas/Manage/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"96a6eebcd8f36cda3e701ca93a52a22042214433", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6f0a757869784cb1225bacf260e921bea8989e76", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

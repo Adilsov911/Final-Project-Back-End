@@ -40,8 +40,15 @@ using FinalProjectJewelry.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\Areas\Manage\Views\_ViewImports.cshtml"
+using FinalProjectJewelry.Areas.Manage.ViewModels.Account;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"19af1220f84aa9eddcd82b9e411ad0668cb8f575", @"/Areas/Manage/Views/Slider/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"96a6eebcd8f36cda3e701ca93a52a22042214433", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6f0a757869784cb1225bacf260e921bea8989e76", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Slider_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Slider>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "manage", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -92,7 +99,7 @@ using FinalProjectJewelry.Services;
 #nullable disable
             WriteLiteral("\n");
             WriteLiteral("<div class=\"d-flex row\">\n    <div class=\"row justify-content-between mt-5\">\n        <div class=\"col-lg-3\">\n            <h1 class=\"h3 text-gray-800\">Category Page</h1>\n        </div>\n        <div class=\"col-lg-5\">\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f5758453", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f5758700", async() => {
                 WriteLiteral("Create");
             }
             );
@@ -146,7 +153,7 @@ using FinalProjectJewelry.Services;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\n                            <td width=\"50%\" height=\"20%\" style=\"border: none;\">\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "19af1220f84aa9eddcd82b9e411ad0668cb8f57511318", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "19af1220f84aa9eddcd82b9e411ad0668cb8f57511565", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -171,7 +178,7 @@ AddHtmlAttributeValue("", 1225, slider.Image, 1225, 13, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                            </td>\n                            <td width=\"50%\" height=\"20%\" style=\"border: none; background-color: white; \">\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "19af1220f84aa9eddcd82b9e411ad0668cb8f57513183", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "19af1220f84aa9eddcd82b9e411ad0668cb8f57513430", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -196,7 +203,7 @@ AddHtmlAttributeValue("", 1556, slider.TitleImg, 1556, 16, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                            </td>\n\n                            <td>\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f57514985", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f57515232", async() => {
                 WriteLiteral("Update");
             }
             );
@@ -232,7 +239,7 @@ AddHtmlAttributeValue("", 1556, slider.TitleImg, 1556, 16, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f57517767", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f57518014", async() => {
                 WriteLiteral("Delete");
             }
             );
@@ -268,7 +275,7 @@ AddHtmlAttributeValue("", 1556, slider.TitleImg, 1556, 16, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f57520550", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af1220f84aa9eddcd82b9e411ad0668cb8f57520797", async() => {
                 WriteLiteral("Detail");
             }
             );

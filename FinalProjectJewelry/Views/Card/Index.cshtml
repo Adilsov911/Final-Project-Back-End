@@ -43,7 +43,7 @@
                 <div class="col-lg-4 d-flex">
                     <div class="img col-lg-6">
 
-                        <a href="product-detail.html"> <img src="~/assest/img/@basket.Image" alt=""></a>
+                        <a href="product-detail.html"> <img src="~/assest/img/Product/@basket.Image" alt=""></a>
                     </div>
                     <div class="title col">
                         <h5> <a href=""> @basket.Title</a></h5>
@@ -51,7 +51,7 @@
 
                 </div>
                 <div class="col-lg-2">
-                    <h5>$200.00</h5>
+                    <h5>$@basket.Price</h5>
 
                 </div>
                 <div class="col-lg-2 ph">
@@ -63,7 +63,7 @@
 
                 </div>
                 <div class="col-lg-2 ph">
-                    <p>200$</p>
+                    <p>$@basket.Price</p>
                 </div>
                 <div class="col-lg-2 ph">
                     <h6><i class="fa-solid fa-trash"></i>REMOVE</h6>
@@ -71,7 +71,7 @@
             </div>
         }
         <div class="total text-center">
-            <h3>TOTAL PRICE: 700$</h3>
+            <h3>TOTAL PRICE: $@Model.Sum(b => b.Price * b.Count)</h3>
             <button type="button" class="btn btn-secondary">BUY</button>
         </div>
     </div>

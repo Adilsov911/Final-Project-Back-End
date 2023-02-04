@@ -1,9 +1,11 @@
 
 using FinalProjectJewelry.DAL;
 using FinalProjectJewelry.Interfaces;
+using FinalProjectJewelry.Models;
 using FinalProjectJewelry.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,6 +43,18 @@ namespace FinalProjectJewelry
             services.AddHttpContextAccessor();
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddSession();
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.User.RequireUniqueEmail = true;
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(90);
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
         }
 
