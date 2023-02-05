@@ -155,7 +155,7 @@
                 {
                     <div class="login m-2">
 
-                        <h6> <a class=" text-dark" href=""> MY ACCOUNT</a></h6>
+                        <h6> <a class=" text-dark" asp-controller="accountcontroller1" asp-action="profile">@User.Identity.Name</a> / <a style="text-decoration:none;color:black;" asp-controller="accountcontroller1" asp-action="logout">LOGOUT</a></h6>
 
                     </div>
                    
@@ -238,11 +238,7 @@
                 <button class="btn-search"><i class="fas fa-search"></i></button>
                 <input type="text" class="input-search" placeholder="Type to Search...">
                 <ul id="searchList" style="background-color:white; text-decoration:none; border:none; width:100%; height:auto; position:absolute; z-index:999;">
-                    <ul id="searchList" style="background-color:white; text-decoration:none; width:100%; height:auto; position:absolute; z-index:999; border:1px solid">
-                        <li>
-
-                        </li>
-                    </ul>
+                    
                 </ul>
             </div>
 

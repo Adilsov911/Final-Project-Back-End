@@ -174,8 +174,9 @@ C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\ne
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Index.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Create.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Update.cshtml.g.cs
-C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Index.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\Register.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\Login.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\AccountController1\Register.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\AccountController1\Login.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\Profile.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Views\AccountController1\Profile.cshtml.g.cs
