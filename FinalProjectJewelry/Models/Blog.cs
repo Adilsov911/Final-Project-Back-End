@@ -12,5 +12,6 @@ namespace FinalProjectJewelry.Models
         public string Image { get; set; }
         public string AtohorName { get; set; }
         public DateTime Time { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

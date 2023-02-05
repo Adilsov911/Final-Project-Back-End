@@ -1,4 +1,16 @@
-﻿@model Blog
+﻿@using Microsoft.AspNetCore.Identity
+
+@model BlogDetailVM
+
+@inject UserManager<AppUser> _userManager
+
+@{ AppUser appUser = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+    }
+        }
 <section id="top-2">
     <div class="container d-flex tp">
         <span>Home /</span> <h6>Blog Detail</h6>
@@ -19,7 +31,7 @@
                 <div class="top">
                     <h4><i class="fa-solid fa-pen-to-square"></i>RECENT ARTICLES</h4>
                 </div>
-                   
+
                 <div class="right-blog">
                     <div class="mideum">
                         <div class="top">
@@ -75,28 +87,28 @@
                         <div class="sa row d-flex">
                             <div class="col-lg-2 d-flex bor row">
                                 <div class="time">
-                                    <h4>@Model.Time.ToString("ddd")</h4>
-                                    <h1>@Model.Time.ToString("dd")</h1>
+                                    <h4>@Model.Blog.Time.ToString("ddd")</h4>
+                                    <h1>@Model.Blog.Time.ToString("dd")</h1>
                                 </div>
                             </div>
                             <div class="col-lg-10 title">
-                                <a href=""> <h3>@Model.Title</h3></a>
+                                <a href=""> <h3>@Model.Blog.Title</h3></a>
                             </div>
                         </div>
                     </div>
                     <div class="img">
-                        <a href="blog-detail.html"> <img src="~/assest/img/blog/@Model.Image" alt=""></a>
+                        <a href="blog-detail.html"> <img src="~/assest/img/blog/@Model.Blog.Image" alt=""></a>
                     </div>
                     <div class="description">
                         <h6>
-                            @Model.Description
+                            @Model.Blog.Description
                         </h6>
-                        
+
 
                         <div class="bottom justify-content-between d-flex mt-5">
 
                             <div class="left">
-                                <h6>@Model.AtohorName / <a href="">58 COMMENT(S)</a> </h6>
+                                <h6>@Model.Blog.AtohorName / <a href="">58 COMMENT(S)</a> </h6>
                             </div>
                             <div class="right">
                                 <button type="button" class="btn btn-light">POST COMMENT</button>
@@ -104,86 +116,77 @@
                         </div>
                     </div>
                 </div>
+                @if (appUser != null)
+                {
+
                 <div class="LeaveC text-center">
                     <div class="title">
                         <h6>LEAVE A COMMENT</h6>
                         <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/4/assets/home_line.png?v=178078056696408182271627441368" alt="">
                     </div>
+
                     <div class="mid">
-                        <div class="INPUTSs">
-                            <h6>Your Name <span>*</span></h6>
-                            <input type="name">
-                        </div>
-                        <div class="INPUTSs">
-                            <h6>Your Email <span>*</span></h6>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="INPUTSs">
-                            <h6>Your Message <span>*</span></h6>
-                            <textarea name="message">
-                            </textarea>
-                        </div>
+                        <form class="bg-light p-2" asp-action="AddComment" asp-route-id="@Model.Blog.Id" method="post">
+                            <div class="d-flex flex-row align-items-start">
+                                <textarea class="form-control ml-1 shadow-none textarea" name="Message"></textarea>
+                                <input type="hidden" name="BlogId" value="@Model.Blog.Id" />
+                            </div>
+                            <div class="mt-2 text-right">
+                                <button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button>
+
+                            </div>
+                        </form>
+
                     </div>
                 </div>
+                }
                 <div class="Comment">
                     <h5>COMMENTS(58)</h5>
-                    <div class="coment">
-                        <div class="com">
-                            <p>
-                                Добрый день!
-                                <br>
-                                Хочу рассказать вам про уже ставшей популярной и необходимой каждому трейдеру программе JoySignals. Это программа, помогающая торговать на валютном рынке и рынке бинарных опционов. На основе анализа индикаторов предоставляет рекомендации по торговле.
-                                <br>
-                                На сайте программы есть видео-примеры торговли на реальных счетах: (раздел «Примеры торговли»)
-                                <br>
-                                Что меня удивило в этой программе, так это очень качественные сигналы, которые рассчитываются на основании 18 индикаторов. В программе поддерживаются многие инструменты – валюты, акции, индексы, сырье.
-                                <br>
-                            </p>
-                            <div class="Author d-flex justify-content-between mt-5">
-                                <p>POST BY TJAZHKOVORV ON 08 JUL, 2015</p>
-                                <button type="button" class="btn btn-light">Reply</button>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coment">
-                        <div class="com">
-                            <p>
-                                Добрый день!
-                                <br>
-                                Хочу рассказать вам про уже ставшей популярной и необходимой каждому трейдеру программе JoySignals. Это программа, помогающая торговать на валютном рынке и рынке бинарных опционов. На основе анализа индикаторов предоставляет рекомендации по торговле.
-                                <br>
-                                На сайте программы есть видео-примеры торговли на реальных счетах: (раздел «Примеры торговли»)
-                                <br>
-                                Что меня удивило в этой программе, так это очень качественные сигналы, которые рассчитываются на основании 18 индикаторов. В программе поддерживаются многие инструменты – валюты, акции, индексы, сырье.
-                                <br>
-                            </p>
-                            <div class="Author d-flex justify-content-between mt-5">
-                                <p>POST BY TJAZHKOVORV ON 08 JUL, 2015</p>
-                                <button type="button" class="btn btn-light">Reply</button>
+                    @if (Model.Comments != null)
+                    {
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coment">
-                        <div class="com">
-                            <p>
-                                Добрый день!
-                                <br>
-                                Хочу рассказать вам про уже ставшей популярной и необходимой каждому трейдеру программе JoySignals. Это программа, помогающая торговать на валютном рынке и рынке бинарных опционов. На основе анализа индикаторов предоставляет рекомендации по торговле.
-                                <br>
-                                На сайте программы есть видео-примеры торговли на реальных счетах: (раздел «Примеры торговли»)
-                                <br>
-                                Что меня удивило в этой программе, так это очень качественные сигналы, которые рассчитываются на основании 18 индикаторов. В программе поддерживаются многие инструменты – валюты, акции, индексы, сырье.
-                                <br>
-                            </p>
-                            <div class="Author d-flex justify-content-between mt-5">
-                                <p>POST BY TJAZHKOVORV ON 08 JUL, 2015</p>
-                                <button type="button" class="btn btn-light">Reply</button>
+                        @foreach (var comment in Model.Comments)
+                        {
 
-                            </div>
-                        </div>
-                    </div>
+                            if (comment.AppUser.UserName == User.Identity.Name)
+                            { 
+                            
+                                <div class="coment">
+                                    <div class="com">
+                                        <div class="Author d-flex justify-content-between mt-5">
+                                            <p>@comment.AppUser.UserName ON @comment.Date.ToString("dddd MMMM yyyy HH:mm")</p>
+                                            <a asp-action="DeleteComment" asp-route-id="@comment.Id" class="text-danger">Delete</a>
+
+                                        </div>
+                                        <p>
+
+                                            @comment.Message
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                 <div class="coment">
+                                    <div class="com">
+                                        <div class="Author d-flex justify-content-between mt-5">
+                                            <p>@comment.AppUser.UserName ON @comment.Date.ToString("dddd MMMM yyyy HH:mm")</p>
+                                            <button type="button" class="btn btn-light">Reply</button>
+
+                                        </div>
+                                        <p>
+
+                                            @comment.Message
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+
+                        }
+                    }
+
                 </div>
                 <div class="Pagination">
                     <nav aria-label="Page navigation example">

@@ -197,54 +197,39 @@
                 <div class="tab">
                     <a class="hov" asp-controller="shop" asp-action="index">COLLECTIONS<i class="fa-solid fa-chevron-down"></i></a>
                     <div class="Tabmenu position-absolute d-flex justify-content-between d-none">
+                        @*@foreach (var shop in Model.Categories)
+                    {
+                       <div class="text-center ">
+                           <h6>@shop.Name</h6>
+                           @foreach (var item in shop.Products.Take(4))
+                            {
+                                   <p><a href="product-detail.html"> @item.Title.Substring(10)</a></p>
 
-                        <div class="text-center ">
-                            <h6>Rings</h6>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
+                            }
+                       </div>
+                    }*@
 
-                        </div>
-                        <div class="text-center ">
-                            <h6>Rings</h6>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-
-                        </div>
-                        <div class="text-center">
-                            <h6>Rings</h6>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-
-                        </div>
-                        <div class="text-center">
-                            <h6>Rings</h6>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-                            <p><a href="product-detail.html"> Hottes</a></h5>
-
-                        </div>
 
                     </div>
                 </div>
 
-                <a asp-controller="blog" asp-action="index">BLOG</i></a>
+                <a asp-controller="blog" asp-action="index">BLOG</a>
                 <a asp-controller="contact" asp-action="index">CONTACT</a>
             </div>
 
             <div class="search-box">
-                <button class="btn-search"><i class="fas fa-search"></i></button>
-                <input type="text" class="input-search" placeholder="Type to Search...">
-                <ul id="searchList" style="background-color:white; text-decoration:none; border:none; width:100%; height:auto; position:absolute; z-index:999;">
-                    
-                </ul>
+                
+                  
+                    <button class="btn-search"><i class="fas fa-search"></i></button>
+                    <input type="text" class="input-search axtar" placeholder="Type to Search...">
+              
             </div>
+             <div class="Carts col-lg-3 text-center d-flex">
 
-            @await Html.PartialAsync("_BasketCartPartial", basketVMs)
-        </div>
-    </header>
+                    @await Html.PartialAsync("_BasketCartPartial", basketVMs)
+             </div>
+            
+</header>
 
 
     <div class="foto d-none">

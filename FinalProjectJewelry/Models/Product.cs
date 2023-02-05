@@ -28,7 +28,7 @@ namespace FinalProjectJewelry.Models
         public Brand Brand { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
+        public List<Comment> Comments { get; set; }
         public IEnumerable<ProductSize> ProductSizes { get; set; }
         public IEnumerable<ProductImage> ProductImages { get; set; }
         public IEnumerable<ProductTag> ProductTags { get; set; }

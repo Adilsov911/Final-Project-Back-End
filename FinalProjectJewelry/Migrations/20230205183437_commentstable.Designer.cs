@@ -4,14 +4,16 @@ using FinalProjectJewelry.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProjectJewelry.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230205183437_commentstable")]
+    partial class commentstable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -836,11 +838,11 @@ namespace FinalProjectJewelry.Migrations
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("FinalProjectJewelry.Models.Blog", "Blog")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("BlogId");
 
                     b.HasOne("FinalProjectJewelry.Models.Product", "Product")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("ProductId");
                 });
 
