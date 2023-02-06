@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@model Product
+@model ProductVM
 
 @inject UserManager<AppUser> _userManager
 
@@ -28,7 +28,7 @@
                         <div class="left-col">
                             <div class="thumbs">
 
-                                @foreach (var item in Model.ProductImages)
+                                @foreach (var item in Model.Product.ProductImages)
                                 {
 
                                     <a class="thumb-image" href="" data-index="2">
@@ -39,7 +39,7 @@
                             </div>
                             <div class="big">
                                 <div class="big-image w-100">
-                                    <img src="~/assest/img/Product/@Model.MainImage" alt="">
+                                    <img src="~/assest/img/Product/@Model.Product.MainImage" alt="">
                                 </div>
                                 <div id="banner-gallery" class="swipe">
                                     <div class="swipe-wrap">
@@ -65,13 +65,13 @@
                                 <link itemprop="availability" href="http://schema.org/InStock">
                                 <div class="price-shipping">
                                     <div class="price" id="price-preview" quickbeam="price" quickbeam-price="800">
-                                        $@Model.Price
+                                        $@Model.Product.Price
                                     </div>
                                 </div>
                                 <div class="swatches">
                                     <div class="swatch clearfix" data-option-index="0">
                                         <div class="header">Size</div>
-                                        @foreach (var item in Model.ProductSizes)
+                                        @foreach (var item in Model.Product.ProductSizes)
                                         {
 
                                             <div data-value="M" class="swatch-element plain m available">
@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="swatch clearfix" data-option-index="1">
                                         <div class="header">Color</div>
-                                        @foreach (var item in Model.ProductColors)
+                                        @foreach (var item in Model.Product.ProductColors)
                                         {
 
                                             <div data-value="Blue" class="swatch-element color @item.Color.Name available">
@@ -118,7 +118,7 @@
                                                 <span class="btn plus" data-id="2721888517"></span>
                                             </div>
                                             <div id="AddToCart" quickbeam="add-to-cart">
-                                                <a style="color:white;" asp-controller="basket" asp-action="addtobasket" asp-route-id="@Model.Id">Add to Cart</a>
+                                                <a style="color:white;" asp-controller="basket" asp-action="addtobasket" asp-route-id="@Model.Product.Id">Add to Cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -126,18 +126,18 @@
                                 <div class="tabs">
                                     <div class="tab-labels">
                                         <span data-id="1" class="active">Info</span>
-                                        <span data-id="2">@Model.Brand.Name</span>
+                                        <span data-id="2">@Model.Product.Brand.Name</span>
                                     </div>
                                     <div class="tab-slides">
                                         <div id="tab-slide-1" itemprop="description" class="slide active">
                                             Product Descriptions
-                                            @Model.Description
+                                            @Model.Product.Description
                                         </div>
                                         <br>
                                         <div id="tab-slide-1" itemprop="description" class="slide active">
                                             <h2>
                                                 Tags: <span>
-                                                    @foreach (var item in Model.ProductTags)
+                                                    @foreach (var item in Model.Product.ProductTags)
                                                     {
                                                         @item.Tag.Name
                                                     }
@@ -163,7 +163,7 @@
     </section>
 
 </header>
-    <section class="container text-center justify-content-center">
+    @*<section class="container text-center justify-content-center">
         @if (appUser != null)
         {
 
@@ -174,10 +174,10 @@
                 </div>
 
                 <div class="mid">
-                    <form class="bg-light p-2" asp-action="AddComment" asp-route-id="@Model.Id" method="post">
+                    <form class="bg-light p-2" asp-action="AddComment" asp-route-id="@Model.Product.Id" method="post">
                         <div class="d-flex flex-row align-items-start">
                             <textarea class="form-control ml-1 shadow-none textarea" name="Message"></textarea>
-                            <input type="hidden" name="ProductId" value="@Model.Id" />
+                            <input type="hidden" name="ProductId" value="@Model.Product.Id" />
                         </div>
                         <div class="mt-2 text-right">
                             <button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button>
@@ -236,4 +236,4 @@
             }
 
         </div>
-    </section>
+    </section>*@

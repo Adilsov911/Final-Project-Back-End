@@ -1,0 +1,50 @@
+﻿@model Blog
+@{ IEnumerable<Blog> blogs = ViewBag.Blog;
+                SelectList selectListItems = new SelectList(blogs, nameof(Blog.Id), nameof(Blog.Title)); }
+
+
+
+<div class="d-flex row">
+    <div class="row justify-content-between mt-5">
+        <div class="col-lg-3">
+            <h1 class="h3 text-gray-800">Blog Update</h1>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <form method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" style="color:wheat" class="form-control" placeholder="Title">
+                    <span asp-validation-for="Title" class="text text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AtohorName"></label>
+                    <input asp-for="AtohorName" style="color:wheat" class="form-control" placeholder="AiyohorName">
+                    <span asp-validation-for="AtohorName" class="text text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <input asp-for="Description" style="color:wheat" class="form-control" placeholder="Description">
+                    <span asp-validation-for="Description" class="text text-danger"></span>
+                </div>
+                <div id="mainImage" class="form-group">
+                    <label asp-for="BlogImageFile"></label>
+                    <input asp-for="BlogImageFile" style="color:wheat" accept="image/jpeg" class="form-control">
+                    <span asp-validation-for="BlogImageFile" class="text text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

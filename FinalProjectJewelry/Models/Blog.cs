@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,5 +15,9 @@ namespace FinalProjectJewelry.Models
         public string AtohorName { get; set; }
         public DateTime Time { get; set; }
         public List<Comment> Comments { get; set; }
+
+        [NotMapped]
+        public IFormFile BlogImageFile { get; set; }
+
     }
 }

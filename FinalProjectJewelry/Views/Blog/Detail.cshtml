@@ -108,11 +108,9 @@
                         <div class="bottom justify-content-between d-flex mt-5">
 
                             <div class="left">
-                                <h6>@Model.Blog.AtohorName / <a href="">58 COMMENT(S)</a> </h6>
+                                <h6>@Model.Blog.AtohorName / <a href="">@Model.Comments.Count() COMMENT(S)</a> </h6>
                             </div>
-                            <div class="right">
-                                <button type="button" class="btn btn-light">POST COMMENT</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -131,9 +129,8 @@
                                 <textarea class="form-control ml-1 shadow-none textarea" name="Message"></textarea>
                                 <input type="hidden" name="BlogId" value="@Model.Blog.Id" />
                             </div>
-                            <div class="mt-2 text-right">
-                                <button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button>
-
+                            <div class="right mt-2 " >
+                                <button  style="background-color:wheat;" type="submit" class="btn btn-light">POST COMMENT</button>
                             </div>
                         </form>
 
@@ -188,19 +185,7 @@
                     }
 
                 </div>
-                <div class="Pagination">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">23</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next >></a></li>
-                        </ul>
-                    </nav>
-                </div>
+               
             </div>
         </div>
     </div>

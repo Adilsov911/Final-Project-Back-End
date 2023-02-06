@@ -14,8 +14,13 @@ namespace FinalProjectJewelry.Controllers
         {
             string basket = HttpContext.Request.Cookies["basket"];
             List<BasketVM> products = null;
-            products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
-            return View(products);
+            if (basket != null)
+            {
+
+             products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+                return View(products);
+            }
+           return RedirectToAction("index", "home");
         }
     }
 }

@@ -56,15 +56,11 @@ namespace FinalProjectJewelry.Controllers
             Product product = _context.Products.Include(p => p.ProductTags).ThenInclude(pt => pt.Tag).Include(p => p.ProductSizes).ThenInclude(ps => ps.Size).Include(p => p.ProductColors).ThenInclude(pc => pc.Color).Where(p => p.IsDeleted == false && p.Id == id).Include(p=>p.ProductImages).Include(s=>s.Brand).FirstOrDefault();
 
 
-            return View(product);
+            return View(productVM);
         }
         public async Task<IActionResult> Search(int? id, string search)
         {
-            IEnumerable<ProductListVM> products = await _context.Products
-                    .Where(
-                    p => id != null ? p.CategoryId == id : true &&
-                    p.Title.ToLower().Contains(search.ToLower()) ||
-                    p.Brand.Name.ToLower().Contains(search.ToLower()))
+            IEnumerable<ProductListVM> products = await _context.Products.Where( p => id != null ? p.CategoryId == id : true && p.Title.ToLower().Contains(search.ToLower()))
                     .OrderByDescending(p => p.Id)
                     .Take(3)
                     .Select(x => new ProductListVM

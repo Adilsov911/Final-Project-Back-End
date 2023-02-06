@@ -9,6 +9,7 @@ namespace FinalProjectJewelry.ViewModels
     public class ProductVM
     {
         public Product Product { get; set; }
+        public List<Product> Products { get; set; }
         public List<Comment> Comments { get; set; }
     }
 }
