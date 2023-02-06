@@ -21,15 +21,25 @@ namespace FinalProjectJewelry.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index()
+        public IActionResult Index(int pageIndex)
         {
             ShopVM shopVM = new ShopVM
             {
                 Categories = _context.Categories.Where(c => c.IsDeleted == false).ToList(),
-                Products = _context.Products.Where(p => p.IsDeleted == false).ToList(),
+                Products = _context.Products.Where(p => p.IsDeleted == false).OrderByDescending(b=>b.Id).ToList(),
                 Colors = _context.Colors.Where(c => c.IsDeleted == false).ToList(),
                 Sizes = _context.Sizes.Where(c => c.IsDeleted == false).ToList()
             };
+
+            int totalPages = (int)Math.Ceiling((decimal)shopVM.Products.Count()/3);
+            if (pageIndex<1||pageIndex>totalPages)
+            {
+                pageIndex = 1;
+            }
+
+            shopVM.Products = shopVM.Products.Skip((pageIndex - 1) * 3).Take(4).ToList();
+            ViewBag.totalpages = totalPages;
+            ViewBag.pageIndex = pageIndex;
 
             return View(shopVM);
         }
