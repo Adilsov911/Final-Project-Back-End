@@ -23,13 +23,10 @@ namespace FinalProjectJewelry.DAL
         public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<ProductColor> ProductColors { get; set; }
         public DbSet<Size> Sizes { get; set; }
-
         public DbSet<Color> Colors { get; set; }
-
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Slider> Sliders { get; set; }
-
         public DbSet<Blog> Blogs { get; set; }
     }
 }

@@ -1,0 +1,39 @@
+﻿@model Brand
+@{ ViewData["Title"] = "Update";
+    IEnumerable<Brand> brands = ViewBag.Brands;
+    SelectList selectListItems = new SelectList(brands, nameof(Brand.Id), nameof(Brand.Name)); }
+
+
+
+<div class="d-flex row">
+    <div class="row justify-content-between mt-5">
+        <div class="col-lg-3">
+            <h1 class="h3 text-gray-800">Category Creat</h1>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <form method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" style="color:wheat" class="form-control" placeholder="Name">
+                    <span asp-validation-for="Name" class="text text-danger"></span>
+                </div>
+                <div id="mainImage" class="form-group">
+                    <label asp-for="BrandFile"></label>
+                    <input asp-for="BrandFile" style="color:wheat" accept="image/jpeg" class="form-control">
+                    <span asp-validation-for="BrandFile" class="text text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Creat</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

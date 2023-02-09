@@ -183,3 +183,12 @@ C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\ne
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Index.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Create.cshtml.g.cs
 C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Update.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Index.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Create.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Update.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Index.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Create.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Update.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Color\Index.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Color\Create.cshtml.g.cs
+C:\Users\adils\source\repos\FinalProjectJewelry\FinalProjectJewelry\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Color\Update.cshtml.g.cs
