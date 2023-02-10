@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,5 +22,7 @@ namespace FinalProjectJewelry.Areas.Manage.ViewModels.Account
         [Compare(nameof(NewPassword))]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+        
+        public IFormFile File { get; set; }
     }
 }

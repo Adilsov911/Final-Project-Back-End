@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,8 +13,8 @@ namespace FinalProjectJewelry.Models
         public string Name { get; set; }
         public string ProfilImg { get; set; }
         [NotMapped]
-        public AppUser ProfilFiles { get; set; }
+        public IFormFile ProfileFile { get; set; }
 
-      
+
     }
 }

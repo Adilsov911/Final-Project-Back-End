@@ -38,6 +38,11 @@
                                 <div class="row pt-1">
                                     <form method="post" class="row">
                                         <div asp-validation-summary="ModelOnly" class="text text-danger"></div>
+                                        <div id="mainImage" class="form-group">
+                                            <label asp-for="File"></label>
+                                            <input asp-for="File" style="color:wheat" accept="image/jpeg" class="form-control">
+                                            <span asp-validation-for="File" class="text text-danger"></span>
+                                        </div>
                                         <div class="col-6 mb-3">
                                             <h6>Enter Name</h6>
                                             <input asp-for="Name">

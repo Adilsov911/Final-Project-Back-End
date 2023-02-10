@@ -30,9 +30,8 @@
         <div class="text-center bottom">
             <div class="Allprice d-block">
                 <h5>Total Price :@Model.Sum(b => b.Price * b.Count)$</h5>
-                <button type="submit" asp-controller="card" asp-action="index" class="btn"> <a asp-controller="card" asp-action="index"> </a> CHECKOUT</button>
             </div>
-            <button type="button" class="btn"> <a asp-controller="card" asp-action="index" ></a>VIEW CARD</button>
+            <a style="color:black;" asp-controller="card" asp-action="index">Go To CARD</a>
         </div>
     </div>
 

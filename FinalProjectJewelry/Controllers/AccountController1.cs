@@ -1,6 +1,9 @@
 ﻿using FinalProjectJewelry.Areas.Manage.ViewModels.Account;
+using FinalProjectJewelry.DAL;
+using FinalProjectJewelry.Extension;
 using FinalProjectJewelry.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,15 +19,21 @@ namespace FinalProjectJewelry.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IWebHostEnvironment _env;
+        private readonly AppDbContext _context;
 
-        public AccountController1(RoleManager<IdentityRole> roleManager,
+        public AccountController1(RoleManager<IdentityRole> roleManager, IWebHostEnvironment env, AppDbContext context,
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
+            _env = env;
+            _context = context;
         }
+        
+       
         public IActionResult Index()
         {
             return View();
@@ -116,7 +125,8 @@ namespace FinalProjectJewelry.Controllers
             {
                 Name = appUser.Name,
                 UserName = appUser.UserName,
-                Email = appUser.Email
+                Email = appUser.Email,
+                File = appUser.ProfileFile
             };
 
             return View(profileVM);
@@ -167,6 +177,16 @@ namespace FinalProjectJewelry.Controllers
                     }
                     return View(profileVM);
                 }
+            }
+            if (appUser.ProfileFile != null)
+            {
+
+                if (!appUser.ProfileFile.IsSizeOkay(5))
+                {
+                    ModelState.AddModelError("ImageFile", "File must be max 2mb");
+                    return View();
+                }
+                appUser.ProfilImg = appUser.ProfileFile.SaveImg(_env.WebRootPath, "assest/img/profile");
             }
 
             if (!string.IsNullOrWhiteSpace(profileVM.CurrentPassword))

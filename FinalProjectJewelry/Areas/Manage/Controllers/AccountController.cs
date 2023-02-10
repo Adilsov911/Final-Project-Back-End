@@ -125,7 +125,8 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
             {
                 Name = appUser.Name,
                 UserName = appUser.UserName,
-                Email = appUser.Email
+                Email = appUser.Email,
+                File = appUser.ProfileFile,
             };
 
             return View(profileVM);

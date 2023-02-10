@@ -89,6 +89,7 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
                 }
                 product.MainImage = product.MainImageFile.SaveImg(_env.WebRootPath, "assest/img/Product");
             }
+           
             List<ProductTag> productTags = new List<ProductTag>();
 
             foreach (int tagId in product.TagIds)
@@ -277,13 +278,13 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
             {
                 if (product.SizeIds.Where(t => t == sizeId).Count() > 1)
                 {
-                    ModelState.AddModelError("TagIds", "Bir Tagdan Bir Ddefe Secilmelidir");
+                    ModelState.AddModelError("TagIds", "Bir Size Bir Ddefe Secilmelidir");
                     return View(product);
                 }
 
                 if (!await _context.Sizes.AnyAsync(c => c.IsDeleted == false && c.Id == sizeId))
                 {
-                    ModelState.AddModelError("TagIds", "Secilen Tag  Yanlisdir");
+                    ModelState.AddModelError("TagIds", "Secilen Size  Yanlisdir");
                     return View(product);
                 }
 

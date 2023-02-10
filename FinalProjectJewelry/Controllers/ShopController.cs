@@ -58,55 +58,23 @@ namespace FinalProjectJewelry.Controllers
 
             return View(productVM);
         }
-        public async Task<IActionResult> Search(int? id, string search)
+        public async Task<IActionResult> Search(int? id,string search)
         {
-            IEnumerable<ProductListVM> products = await _context.Products.Where( p => id != null ? p.CategoryId == id : true && p.Title.ToLower().Contains(search.ToLower()))
-                    .OrderByDescending(p => p.Id)
-                    .Take(3)
-                    .Select(x => new ProductListVM
-                    {
-                        Id = x.Id,
-                        Title = x.Title,
-                        Image = x.MainImage
-                    })
-                    .ToListAsync();
+            IEnumerable<ProductListVM> products = await _context.Products
+                   .Where(
+                   p => id != null ? p.CategoryId == id : true &&
+                   p.Title.ToLower().Contains(search.ToLower()) ||
+                   p.Brand.Name.ToLower().Contains(search.ToLower())).Select(x => new ProductListVM
+                   {
+                       Id = x.Id,
+                       Title = x.Title,
+                       Image = x.MainImage
+                   })
+                   .ToListAsync();
 
-            
-
-            return PartialView("_SearchPartial", products);
+            return Json(products);
         }
-        [Authorize]
-        [AutoValidateAntiforgeryToken]
-        [HttpPost]
-        public async Task<IActionResult> AddComment(Comment comment)
-        {
-            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (!ModelState.IsValid) return RedirectToAction("Details", "Shop", new { id = comment.BlogId });
-            if (!_context.Products.Any(f => f.Id == comment.ProductId)) return NotFound();
-            Comment cmnt = new Comment
-            {
-                Message = comment.Message,
-                ProductId = comment.ProductId,
-                Date = DateTime.Now,
-                AppUserId = user.Id,
-                IsAccess = true,
-            };
-            _context.Comments.Add(cmnt);
-            _context.SaveChanges();
-            return RedirectToAction("Detail", "Shop", new { id = comment.ProductId });
-
-        }
-        [Authorize]
-        public async Task<IActionResult> DeleteComment(int id)
-        {
-            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (!ModelState.IsValid) return RedirectToAction("Index", "Shop");
-            if (!_context.Comments.Any(c => c.Id == id && c.IsAccess == true && c.AppUserId == user.Id)) return NotFound();
-            Comment comment = _context.Comments.FirstOrDefault(c => c.Id == id && c.AppUserId == user.Id);
-            _context.Comments.Remove(comment);
-            _context.SaveChanges();
-            return RedirectToAction("Detail", "Blog", new { id = comment.ProductId });
-        }
+       
     }
 }
 

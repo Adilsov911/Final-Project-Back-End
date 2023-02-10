@@ -108,39 +108,43 @@ $(function () {
 
 
 
-$(document).ready(() => {
+//$(document).ready(() => {
 
 
-    $(".bas").click(() => {
-        let searchInput = $(".axtar").val();
-        let searchCategory = $(".searchCategory option:selected").val();
+//    $(".bas").click(() => {
+//        let searchInput = $(".axtar").val();
+       
         
-        fetch('/Shop/Search/' + searchCategory + 'search=' + searchInput)
-        if (searchInput.length >= 0) {
-           then(response => {
-             return response.text();
-          })
-              .then(data => {
-                  $("#sa").html(data);
-              })
+//        fetch('/shop/Search/' + 'search=' + searchInput)
+       
+//           then(response => {
+//             return response.json();
+//          }).then(data => {
+//                 console.log(data)
+//                    let liItems = '';
+
+//                    for (var i = 0; i < data.length; i++) {
+//                        let liItems = `<li>
+//                            <img width = "100" src = "~/assets/images/product/${data[i].image}" alt = "Alternate Text" />
+//                                <a asp-controller="shop" asp-action="detail" asp-route-id="@productListVM.Id">${data[i].title}</a>
+//                              </li>`
+//                        liItems += liItems;
+
+//                        console.log(liItems)
+
+//                    }
+//              })
 
 
-        }
+        
 
-    })
+//    })
 
-    $(".axtar").keyup(function () {
-        let inputVal = $(this).val();
 
-        if (inputVal.length <= 0) {
-            $("#sa").html('');
-        }
-    })
-
-    //$(document).on("click", function (e) {
-    //    let name = e.target.;
-    //    if (name != "searchInput") {
-    //        $("#searchList").html('');
-    //    }
-    //})
-})
+//    //$(document).on("click", function (e) {
+//    //    let name = e.target.;
+//    //    if (name != "searchInput") {
+//    //        $("#searchList").html('');
+//    //    }
+//    //})
+//})

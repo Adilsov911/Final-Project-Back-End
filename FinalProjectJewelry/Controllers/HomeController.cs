@@ -1,6 +1,8 @@
 ﻿using FinalProjectJewelry.DAL;
+using FinalProjectJewelry.Models;
 using FinalProjectJewelry.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,5 +32,6 @@ namespace FinalProjectJewelry.Controllers
 
             return View(homeVM);
         }
+        
     }
 }
