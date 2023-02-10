@@ -1,0 +1,71 @@
+﻿
+@model Product
+@{ ViewData["Title"] = "Detail";
+                int counter = 1; }
+
+
+<div class="row d-flex">
+
+<div class="row justify-content-between mt-5">
+    <div class="col-lg-4">
+        <h1 class="h3 mb-4" style="color:wheat;">@Model.Title</h1>
+    </div>
+    <div class="col-lg-1">
+        <a asp-area="manage" asp-controller="product" asp-action="index" class="btn btn-primary">Home</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/assest/img/Product/@Model.MainImage" alt="Card image cap">
+            <div class="card-body">
+                <h5 style="color:wheat;" class="card-title">@Model.Title</h5>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th style="color:wheat;">No</th>
+                    <th style="color:wheat;">Category</th>
+                    <th style="color:wheat;">Brand</th>
+                    @foreach (var item in Model.ProductColors)
+                    {
+
+                        <th style="color:wheat;">Color</th>}
+                    @foreach (var item in Model.ProductSizes)
+                    {
+
+                    <th style="color:wheat;">Size</th>
+                        }
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td style="color:wheat;">@counter</td>
+                    <td style="color:wheat;">@Model.Category.Name</td>
+                    <td style="color:wheat;">@Model.Brand.Name</td>
+                    @foreach (var item in Model.ProductColors)
+                    {
+                        <td style="color:wheat;">@item.Color.Name</td>}
+                    @foreach (var item in Model.ProductSizes)
+                    {
+                     <td style="color:wheat;">@item.Size.Name</td>
+                    }
+                  
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+

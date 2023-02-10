@@ -3,14 +3,14 @@
 @{ ViewData["Title"] = "Index";
     int counter = 1; }
 
-@model List<Color>
+@model List<Setting>
 <div class="d-flex row">
     <div class="row justify-content-between mt-5">
         <div class="col-lg-3">
-            <h1 class="h3 text-gray-800" style="color:wheat;">Colors Page</h1>
+            <h1 class="h3 text-gray-800">Setting Page</h1>
         </div>
         <div class="col-lg-5">
-            <a asp-area="manage" asp-controller="color" asp-action="create" class="btn btn-primary">Create</a>
+            <a asp-area="manage" asp-controller="setting" asp-action="create" class="btn btn-primary">Create</a>
         </div>
     </div>
 
@@ -20,24 +20,24 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Setting</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (Color color in Model)
+                    @foreach (Setting setting in Model)
                     {
                     <tr>
                         <td style="color:wheat">@counter</td>
-                        <td width="75" style="background-color:@color.Name;">
-                            
-                        </td>
-                        <td style="color:wheat">@color.Name</td>
+
+                        <td style="color:wheat">@setting.Key</td>
+                        <td style="color:wheat">@setting.Value</td>
                         <td>
-                            <a class="btn btn-warning" asp-area="manage" asp-controller="color" asp-action="update" asp-route-id="@color.Id">Update</a>
-                            <a class="btn btn-danger" asp-area="manage" asp-controller="color" asp-action="delete" asp-route-id="@color.Id">Delete</a>
+                            <a class="btn btn-warning" asp-area="manage" asp-controller="setting" asp-action="update" asp-route-id="@setting.Id">Update</a>
                         </td>
-                    </tr>counter++;
+                    </tr>
+                counter++;
                     }
                 </tbody>
             </table>

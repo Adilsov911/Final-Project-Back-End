@@ -371,5 +371,27 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("id null ola bilmez");
+            }
+
+            Product product = _context.Products
+               .Include(p => p.Category)
+               .Include(p => p.Brand)
+               .Include(p => p.ProductTags).ThenInclude(pt => pt.Tag).Include(p => p.ProductSizes)
+               .ThenInclude(p => p.Size).Include(p => p.ProductColors).ThenInclude(p => p.Color)
+               .FirstOrDefault(c => c.IsDeleted == false && c.Id == id);
+
+            if (product == null)
+            {
+                return NotFound("id yalnisdir");
+            }
+
+            return View(product);
+        }
     }
 }
