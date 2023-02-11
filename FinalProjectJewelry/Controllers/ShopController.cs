@@ -21,7 +21,7 @@ namespace FinalProjectJewelry.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(int pageIndex)
+        public IActionResult Index(int sortId, int pageIndex)
         {
             ShopVM shopVM = new ShopVM
             {
@@ -36,7 +36,7 @@ namespace FinalProjectJewelry.Controllers
             {
                 pageIndex = 1;
             }
-
+           
             shopVM.Products = shopVM.Products.Skip((pageIndex - 1) * 3).Take(4).ToList();
             ViewBag.totalpages = totalPages;
             ViewBag.pageIndex = pageIndex;

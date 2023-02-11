@@ -32,7 +32,7 @@
                     <select class="filter-item-selector FilterBySizes">
                         <option value="" disabled selected>Color</option>
                         <option value="all">All</option>
-                        
+
                         @foreach (var item in Model.Colors)
                         {
                             <option value="all"> @item.Name</option>
@@ -57,13 +57,13 @@
                 <div class="header-filter wrapper medium-down--hide right ">
 
                     <h6 class="text-start">Shorty By</h6>
-                    <select class="filter-item-selector FilterByVendors">
-                        <option value="" disabled selected>Alphabetically,  A-Z</option>
-                        <option value="all">Featured</option>
-                        <option value="all">Best Selling</option>
-                        <option value="all">Alphabetically,  Z-A</option>
-                        <option value="all">Price Low to High</option>
-                        <option value="all">Price Hihgh to Low</option>
+                    <p class="d-none" id="getvalue"></p>
+                    <select id="select" class="filter-item-selector FilterByVendors">
+                        <option value="1">All</option>
+                        <option value="3">Alphabetically,  A-Z</option>
+                        <option value="2">Alphabetically,  Z-A</option>
+                        <option value="5">Price Low to High</option>
+                        <option value="4">Price Hihgh to Low</option>
                     </select>
                 </div>
 
@@ -123,30 +123,30 @@
 
 
                 }
-                            <div class="text-center mt-3">
-                
-                               
-                                    <nav aria-label="Page navigation example">
-                                        <ul  mt-5" style="color:wheat;">
-                                            @if (ViewBag.pageIndex>1)
-                                            {
+                <div class="text-center mt-3 d-block">
 
-                                                <li style="color:wheat;"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-pageIndex="@(ViewBag.pageIndex-1)" >Previous</a></li>
-                                            }
-                                            @for (int i = 1; i <= ViewBag.totalpages; i++)
-                                            {
 
-                                            <li style="color:wheat;"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-pageIndex="@i">@i</a></li>
-                                            }
-                                           @if (ViewBag.pageIndex<ViewBag.totalPages)
-                                           {
+                    <nav aria-label="Page navigation example" class="d-block">
+                        <ul mt-5" style="color:wheat;">
+                            @if (ViewBag.pageIndex > 1)
+                            {
 
-                                            <li class="page-item" style="color:wheat;"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-pageIndex="@(ViewBag.pageIndex+1)">Next >></a></li>
-                                           }
-                                        </ul>
-                                    </nav>
-                                
-                            </div>
+                                <li style="color:wheat;"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-pageIndex="@(ViewBag.pageIndex-1)">Previous</a></li>
+                            }
+                            @for (int i = 1; i <= ViewBag.totalpages; i++)
+                            {
+
+                                <li style="color:wheat;"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-pageIndex="@i">@i</a></li>
+                            }
+                            @if (ViewBag.pageIndex < ViewBag.totalPages)
+                            {
+
+                                <li class="page-item" style="color:wheat;"><a class="page-link" asp-controller="shop" asp-action="index" asp-route-pageIndex="@(ViewBag.pageIndex+1)">Next >></a></li>
+                            }
+                        </ul>
+                    </nav>
+
+                </div>
 
             </div>
         </div>

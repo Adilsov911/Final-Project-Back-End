@@ -94,13 +94,13 @@
     <section class="navigation d-none">
         <div class="nav-container">
             <div class="brand">
-                <a href="home.html"><img src="~/assest/img/logo/@settings.First(s=>s.Key=="Logo").Value" alt=""></a>
+                <a asp-controller="home"asp-action="index"><img src="~/assest/img/logo/@settings.First(s=>s.Key=="Logo").Value" alt=""></a>
             </div>
             <nav>
                 <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
                 <ul class="nav-list">
                     <li>
-                        <a href="home.html">HOME</a>
+                        <a asp-controller="home" asp-action="index">HOME</a>
                     </li>
                     <li>
                         <a asp-controller="shop" asp-action="index">COLLECTIONS</a>
@@ -122,16 +122,33 @@
                     <li>
                         <a asp-controller="blog" asp-action="index">BLOG</a>
                     </li>
-                    <li>
-                        <a href="contact.html">CONTACT</a>
-                    </li>
-                    <li>
-                        <a href="Login.html">LOGIN</a>
 
-                    </li>
                     <li>
-                        <a href="Register.html">REGISTER</a>
+                        <a asp-controller="contact" asp-action="index">CONTACT</a>
                     </li>
+                    @if (appUser != null)
+                    {
+                        <li>
+                            <a asp-controller="AccountController1" asp-action="profile">My Account</a>
+
+                        </li>
+                        <li>
+                            <a asp-controller="AccountController1" asp-action="logout">LogOut</a>
+
+                        </li>
+
+                    }
+                    else
+                    {
+
+                        <li>
+                            <a asp-controller="AccountController1" asp-action="login">LOGIN</a>
+
+                        </li>
+                        <li>
+                            <a asp-controller="AccountController1" asp-action="register">REGISTER</a>
+                        </li>
+                    }
                     <div class="search-box">
                         <button class="btn-search"><i class="fas fa-search"></i></button>
                         <input type="text" class="input-search" placeholder="Type to Search...">
@@ -167,9 +184,9 @@
                     </div>
                 }
                 <div class="logos">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://www.instagram.com/adilsov911/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/adilsov911/"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/adilsov911/"><i class="fa-brands fa-pinterest"></i></a>
                 </div>
                 <div class="custom-select  phone" style="width:200px;">
                     <select>
@@ -234,7 +251,7 @@
 
 
     <div class="foto d-none">
-        <img src="~/assest/img/slider/slide-image-2.jpg" alt="">
+       <img src="~/assest/img/slider/slide-image-2.jpg" alt="">
     </div>
 
     @RenderBody()
