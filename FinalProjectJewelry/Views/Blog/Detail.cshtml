@@ -31,14 +31,16 @@
                 <div class="top">
                     <h4><i class="fa-solid fa-pen-to-square"></i>RECENT ARTICLES</h4>
                 </div>
+                @foreach (var item in Model.Blogs)
+                {
 
-                <div class="right-blog">
+                 <div class="right-blog">
                     <div class="mideum">
                         <div class="top">
-                            <h3> <a href=""> Sample Blog Post With Left Slidebar</a></h3>
+                            <h3> <a asp-controller="blog" asp-action="detail" asp-route-id="@item.Id"> @item.Title</a></h3>
                         </div>
                         <div class="mid">
-                            <h6>JIN ALKAID / <a href="">58 COMMENT(S)</a> </h6>
+                            <h6>@item.AtohorName / <a href="">@item.Comments.Count COMMENT(S)</a> </h6>
                         </div>
                         <div class="bot">
                             <p>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint. Braid skirt round sunglasses seam...</p>
@@ -46,37 +48,8 @@
                     </div>
                     <hr>
                 </div>
-                <div class="right-blog">
-
-                    <div class="mideum">
-                        <div class="top">
-                            <h3> <a href=""> Sample Blog Post With Left Slidebar</a></h3>
-                        </div>
-                        <div class="mid">
-                            <h6>JIN ALKAID / <a href="">58 COMMENT(S)</a> </h6>
-                        </div>
-                        <div class="bot">
-                            <p>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint. Braid skirt round sunglasses seam...</p>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="right-blog">
-
-                    <div class="mideum">
-                        <div class="top">
-                            <h3> <a href=""> Sample Blog Post With Left Slidebar</a></h3>
-                        </div>
-                        <div class="mid">
-                            <h6>JIN ALKAID / <a href="">58 COMMENT(S)</a> </h6>
-                        </div>
-                        <div class="bot">
-                            <p>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint. Braid skirt round sunglasses seam...</p>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-
+                }
+               
 
 
             </div>

@@ -36,6 +36,7 @@ namespace FinalProjectJewelry.Controllers
         {
             BlogDetailVM detailVM = new BlogDetailVM
             {
+                Blogs = _context.Blogs.Include(b => b.Comments).ThenInclude(b => b.AppUser).ToList(),
                 Blog = _context.Blogs.Include(b => b.Comments).ThenInclude(b => b.AppUser).FirstOrDefault(b => b.Id == id),
                 Comments = _context.Comments.Include(c => c.Blog).Include(c => c.AppUser).Where(c => c.BlogId == id).ToList(),
             };
