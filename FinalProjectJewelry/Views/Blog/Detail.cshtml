@@ -90,25 +90,25 @@
                 @if (appUser != null)
                 {
 
-                <div class="LeaveC text-center">
-                    <div class="title">
-                        <h6>LEAVE A COMMENT</h6>
-                        <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/4/assets/home_line.png?v=178078056696408182271627441368" alt="">
-                    </div>
+                    <div class="LeaveC text-center">
+                        <div class="title">
+                            <h6>LEAVE A COMMENT</h6>
+                            <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/4/assets/home_line.png?v=178078056696408182271627441368" alt="">
+                        </div>
 
-                    <div class="mid">
-                        <form class="bg-light p-2" asp-action="AddComment" asp-route-id="@Model.Blog.Id" method="post">
-                            <div class="d-flex flex-row align-items-start">
-                                <textarea class="form-control ml-1 shadow-none textarea" name="Message"></textarea>
-                                <input type="hidden" name="BlogId" value="@Model.Blog.Id" />
-                            </div>
-                            <div class="right mt-2 " >
-                                <button  style="background-color:wheat;" type="submit" class="btn btn-light">POST COMMENT</button>
-                            </div>
-                        </form>
+                        <div class="mid">
+                            <form class="bg-light p-2" asp-action="AddComment" asp-route-id="@Model.Blog.Id" method="post">
+                                <div class="d-flex flex-row align-items-start">
+                                    <textarea class="form-control ml-1 shadow-none textarea" name="Message"></textarea>
+                                    <input type="hidden" name="BlogId" value="@Model.Blog.Id" />
+                                </div>
+                                <div class="right mt-2 " >
+                                    <button  style="background-color:wheat;" type="submit" class="btn btn-light">POST COMMENT</button>
+                                </div>
+                            </form>
 
+                        </div>
                     </div>
-                </div>
                 }
                 <div class="Comment">
                     <h5>COMMENTS(@Model.Comments.Count())</h5>
@@ -119,7 +119,7 @@
                         @foreach (var comment in Model.Comments)
                         {
 
-                            if (comment.AppUser.UserName == User.Identity.Name)
+                            if (comment.AppUser.UserName == User.Identity.Name || User.IsInRole("SuperAdmin")||User.IsInRole("Admin"))
                             { 
                             
                                 <div class="coment">

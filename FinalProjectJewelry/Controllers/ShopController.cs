@@ -21,7 +21,7 @@ namespace FinalProjectJewelry.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(int sortId, int pageIndex)
+        public IActionResult Index(int pageIndex)
         {
             ShopVM shopVM = new ShopVM
             {
@@ -31,13 +31,13 @@ namespace FinalProjectJewelry.Controllers
                 Sizes = _context.Sizes.Where(c => c.IsDeleted == false).ToList()
             };
 
-            int totalPages = (int)Math.Ceiling((decimal)shopVM.Products.Count()/3);
+            int totalPages = (int)Math.Ceiling((decimal)shopVM.Products.Count()/7);
             if (pageIndex<1||pageIndex>totalPages)
             {
                 pageIndex = 1;
             }
            
-            shopVM.Products = shopVM.Products.Skip((pageIndex - 1) * 3).Take(4).ToList();
+            shopVM.Products = shopVM.Products.Skip((pageIndex - 1) * 3).Take(8).ToList();
             ViewBag.totalpages = totalPages;
             ViewBag.pageIndex = pageIndex;
 
@@ -58,23 +58,13 @@ namespace FinalProjectJewelry.Controllers
 
             return View(productVM);
         }
-        public async Task<IActionResult> Search(int? id,string search)
+        public async Task<IActionResult> Search(string search)
         {
-            IEnumerable<ProductListVM> products = await _context.Products
-                   .Where(
-                   p => id != null ? p.CategoryId == id : true &&
-                   p.Title.ToLower().Contains(search.ToLower()) ||
-                   p.Brand.Name.ToLower().Contains(search.ToLower())).Select(x => new ProductListVM
-                   {
-                       Id = x.Id,
-                       Title = x.Title,
-                       Image = x.MainImage
-                   })
-                   .ToListAsync();
+            List<Product> products = await _context.Products.Where(p => !p.IsDeleted && p.Title.ToLower().Contains(search.ToLower())).ToListAsync();
+            return PartialView("_SearchPartial", products);
 
-            return Json(products);
         }
-       
+
     }
 }
 

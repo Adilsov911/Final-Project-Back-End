@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace FinalProjectJewelry.Controllers
@@ -86,5 +87,7 @@ namespace FinalProjectJewelry.Controllers
 
             return PartialView("_BasketCartPartial", products);
         }
+       
+
     }
 }

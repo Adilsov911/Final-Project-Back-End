@@ -1,9 +1,9 @@
-﻿@model IEnumerable<ProductListVM>
+﻿@model IEnumerable<Product>
 
-@foreach (ProductListVM productListVM in Model)
+@foreach (var product in Model)
 {
     <li>
-        <img width="100" src="~/assets/images/product/@productListVM.Image" alt="Alternate Text" />
-        <a asp-controller="shop" asp-action="detail" asp-route-id="@productListVM.Id">@productListVM.Title</a>
+        <img width="100" src="~/assest/img/product/@product.MainImage" alt="Alternate Text" />
+        <a asp-controller="shop" asp-action="detail" asp-route-id="@product.Id">@product.Title</a>
     </li>
  }

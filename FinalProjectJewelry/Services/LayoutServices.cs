@@ -55,7 +55,7 @@ namespace FinalProjectJewelry.Services
 
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
-            return await _context.Categories
+            return await _context.Categories.Include(p=>p.Products)
                 .Where(c => c.IsDeleted == false)
                 .ToListAsync();
         }

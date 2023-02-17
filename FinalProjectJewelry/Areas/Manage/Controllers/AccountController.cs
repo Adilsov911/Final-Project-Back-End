@@ -39,7 +39,7 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Register(RegisterVM registerVM)
         {
             if (!ModelState.IsValid)
@@ -69,7 +69,7 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
             //return RedirectToAction("Index", "Dashboard", new { area = "manage" });
             return RedirectToAction("login");
         }
-        //[Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         [HttpGet]
         public IActionResult Login()
         {
@@ -95,9 +95,6 @@ namespace FinalProjectJewelry.Areas.Manage.Controllers
             Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.CheckPasswordSignInAsync(appUser, loginVM.Password, true);
 
 
-            //var a = appUser.LockoutEnd.Value.DateTime.AddHours(4).Second;
-
-            // (appUser.LockoutEnd.Value.DateTime.AddHours(4).Date.Second - DateTime.Now.Date.Second).ToString()
 
             if (signInResult.IsLockedOut)
             {

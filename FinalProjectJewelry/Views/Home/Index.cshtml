@@ -1,15 +1,25 @@
-﻿@model HomeVM
+﻿@using Microsoft.AspNetCore.Identity
+@model HomeVM
+@inject UserManager<AppUser> _userManager
 
+@{
+    AppUser appUser = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+    }
+}
 <section class="Slider">
 
     @foreach (var item in Model.Sliders)
     {
-        if (item.Right==false)
+        if (item.Right == false)
         {
 
             <div class="slider-items ">
                 <img src="~/assest/img/slider/@item.Image" alt="">
-             
+
                 <div class="img-slider">
                     <img src="~/assest/img/slider/inslideimg/@item.TitleImg" alt="">
 
@@ -54,7 +64,7 @@
                     <h6> <a asp-controller="shop" asp-action="index">See The Collections</a> </h6>
                 </div>
             }
-           
+
 
         </div>
     </div>
@@ -69,51 +79,61 @@
         <div class="Categoty d-flex justify-content-between row">
             @foreach (var item in Model.Products.Take(6))
             {
-                
-                    <div class="product col-lg-4 col-6">
-                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"><img src="~/assest/img/Product/@item.MainImage" alt=""></a>
-                        <div class="icons text-center">
-                            <hr>
-                            <div class="content">
-                                <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"> <i class="fa-solid fa-bars"></i> </a>
-                                <a id="one" class="button"> <i class="fa-solid fa-eye"></i></a>
+
+                <div class="product col-lg-4 col-6">
+                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"><img src="~/assest/img/Product/@item.MainImage" alt=""></a>
+                    <div class="icons text-center">
+                        <hr>
+                        <div class="content">
+                            <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id"> <i class="fa-solid fa-bars"></i> </a>
+                            <a id="one" class="button"> <i class="fa-solid fa-eye"></i></a>
+                            @if (appUser != null)
+                            {
                                 <a class="addtobasket" asp-controller="basket" asp-action="addtobasket" asp-route-id="@item.Id"><i class="fa-solid fa-basket-shopping"></i></a>
 
-                            </div>
-                        </div>
-                        <hr>
-                        @if (item.IsBestSeller==true)
-                        {
 
-                            <div class="sale">
-                                <h3>Sale</h3>
-                            </div>
-                        }
-                        <div class="bottom d-flex justify-content-between">
 
-                            <div class="title">
-                                <h5>@item.Title</h5>
-                                <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
-                            </div>
-                            <div class="price text-end">
-                                @if (0 < item.DiscountedPrice)
-                                {
+                            }
+                            else
+                            {
+                                <a asp-controller="accountcontroller1" asp-action="login"><i class="fa-solid fa-basket-shopping"></i></a>
+                            }
 
-                                    <h4>@item.Price$</h4>
-                                    <h6>@item.DiscountedPrice$</h6>
-                                }
-                                else
-                                {
-                                    <h4>@item.Price$</h4>
-
-                                }
-                            </div>
                         </div>
                     </div>
-                
-                
+                    <hr>
+                    @if (item.IsBestSeller == true)
+                    {
+
+                        <div class="sale">
+                            <h3>Sale</h3>
+                        </div>
+                    }
+                    <div class="bottom d-flex justify-content-between">
+
+                        <div class="title">
+                            <h5>@item.Title</h5>
+                            <h6><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> </h6>
+                        </div>
+                        <div class="price text-end">
+                            @if (0 < item.DiscountedPrice)
+                            {
+
+                                <h4>@item.Price$</h4>
+                                <h6>@item.DiscountedPrice$</h6>
+                            }
+                            else
+                            {
+                                <h4>@item.Price$</h4>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+
             }
-           
+
 
 
 
@@ -164,12 +184,12 @@
                         </div>
                         <div class="col-lg-10 title">
                             <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id"> <h3>@blog.Title</h3></a>
-                            <span><i class="fa-solid fa-user"></i> Jin Alkaid / <i class="fa-regular fa-pen-to-square"></i> 58 Comments</span>
+                            <span><i class="fa-solid fa-user"></i> @blog.AtohorName / <i class="fa-regular fa-pen-to-square"></i> 58Comments</span>
                             <h6>Shoe street style leather tote oversized sweatshirt A.P.C. Prada Saffiano crop slipper denim shorts spearmint....</h6>
                         </div>
                     </div>
                 }
-               
+
             </div>
 
 
@@ -230,7 +250,7 @@
 
 
             }
-            
+
 
 
 

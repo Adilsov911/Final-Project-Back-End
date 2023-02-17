@@ -49,7 +49,7 @@ namespace FinalProjectJewelry.Controllers
         public async Task<IActionResult> AddComment(Comment comment)
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (!ModelState.IsValid) return RedirectToAction("Details", "Blog", new { id = comment.BlogId });
+            if (!ModelState.IsValid) return RedirectToAction("Detail", "Blog", new { id = comment.BlogId });
             if (!_context.Blogs.Any(f => f.Id == comment.BlogId)) return NotFound();
             Comment cmnt = new Comment
             {
